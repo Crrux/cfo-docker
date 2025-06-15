@@ -1,0 +1,187 @@
+header
+    display: flex
+    justify-content: space-evenly
+    align-items: center
+    flex-direction: column
+    margin-bottom: 20px
+    font-size: 1.5rem
+    a
+        text-decoration: none
+        color: light-dark($color-light, $color-dark)
+    #Header_Logo
+        margin-top: 10px
+        max-height: 200px
+        max-width: 100%
+        @media screen and (max-width: $layout-breakpoint-small)
+            max-height: 100px
+
+    #home_link
+        font-size: 2rem
+
+    .navbar
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        justify-content: space-between
+        padding: 1rem
+        width: 100vw
+        min-height: 75px
+        color: light-dark($color-light, $color-dark)
+        z-index: 200
+        user-select: none
+        &__links
+            width: 100%
+            display: flex
+            justify-content: center
+            img
+                display: none
+                height: 100px
+        &__link
+            padding: 0 0.3rem
+            color: inherit
+            position: relative
+            width: fit-content
+        .activeNavLink
+            &:after
+                content: ''
+                display: block
+                position: absolute
+                width: 70%
+                height: 3px
+                background: linear-gradient(to right,#ffffff1a 0, #36d6e7 20%, #36d6e7 80%, #ffffff1a 100%)
+                left: 50%
+                transform: translateX(-50%)
+
+        &__burger
+            width: 40px
+            height: 40px
+            z-index: 202
+            background: transparent
+            border: none
+            color: inherit
+            display: none
+        ul
+            list-style-type: none
+            margin: 0
+            padding: 0
+        a
+            text-decoration: none
+    @media screen and (max-width: 1024px)
+        .navbar
+            position: fixed
+            color: $color-dark
+            &__links
+                position: relative
+                img
+                    display: block
+                    position: absolute
+                    top: 3vh
+                    left: 50%
+                    transform: translateX(-50%)
+            &__link
+                display: block
+                padding: 1.3rem
+                font-size: 5vw
+            &__burger
+                display: block
+                position: fixed
+                top: 1rem
+                right: 3%
+                &:hover
+                    cursor: pointer
+            &__item
+                &:after
+                    content: ''
+                    display: block
+                    margin: 0 auto
+                    width: 3vw
+                    height: 1px
+                    background: #fff
+                &:last-child:after
+                    display: none
+            &__links
+                flex-direction: column
+                justify-content: center
+                align-items: center
+                position: fixed
+                right: -100vw
+                bottom: 0
+                height: 100%
+                padding: 2rem
+                background-color: #000
+                visibility: hidden
+                transition: all 0.5s ease-in-out
+        .hide-nav
+            right: -100vw
+        .show-nav
+            .navbar__links
+                right: 0
+                width: 100%
+                visibility: visible
+
+        .navbar__button
+            .burger-bar,
+            .burger-bar::before,
+            .burger-bar::after
+                display: block
+                width: 40px
+                height: 3px
+                position: relative
+                border-radius: 3px
+                background-color: light-dark($background-dark, $background-light)
+
+                transition: all 0.3s ease-in-out
+            .burger-bar::before,
+            .burger-bar::after
+                content: ''
+                position: absolute
+                left: 0
+
+            .burger-bar::before
+                transform: translateY(-12px)
+
+            .burger-bar::after
+                transform: translateY(12px)
+        .show-nav
+            .burger-bar,
+            .burger-bar::before,
+            .burger-bar::after
+                background-color: $background-light
+            .burger-bar:before
+                transform: rotate(45deg)
+            .burger-bar:after
+                transform: rotate(-45deg)
+            .burger-bar
+                width: 0
+                background: transparent
+    @media screen and (min-width: 1024px)
+        .navbar
+            &__link
+                &:hover:not(.activeNavLink)
+                    &:after
+                        content: ''
+                        display: block
+                        position: absolute
+                        width: 70%
+                        height: 3px
+                        background: linear-gradient(to right,#ffffff1a 0, #36d6e7 20%, #36d6e7 80%, #ffffff1a 100%)
+                        left: 50%
+                        transform: translateX(-50%)
+                        animation: width_animation 0.3s ease-in-out forwards
+            &__item:nth-child(2)
+                &:hover
+                    animation: upscale 0.3s ease-in-out forwards
+                a:hover:after
+                    display: none
+
+@keyframes width_animation
+    0%
+        width: 0%
+    100%
+        width: 70%
+
+@keyframes upscale
+    0%
+        transform: scale(1)
+    100%
+        transform: scale(1.1)

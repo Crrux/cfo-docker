@@ -1,0 +1,11 @@
+/node_modules
+/dist
+/config
+.env.dev
+.env.production
+.gitignore
+.vscode
+.prettierrc
+eslint.config.js
+readme.md
+vercel.json

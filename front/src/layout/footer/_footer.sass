@@ -1,0 +1,106 @@
+footer
+    background-color: #131516
+    color: $color-dark
+    margin-top: 50px
+    padding-top: 50px
+    #Contact_container
+        display: flex
+        flex-direction: row
+        width: 100%
+        justify-content: space-evenly
+        align-items: center
+        flex-wrap: wrap
+        gap: 40px
+        p
+            a
+                margin-left: 3px
+                &:visited
+                    color: $color-dark
+        @media (max-width: $layout-breakpoint-small)
+            gap: 20px
+            flex-direction: column
+        #Contact_info
+            display: flex
+            flex-direction: column
+            gap: 20px
+            table
+                border-spacing: 20px 10px
+                td
+                    text-align: left
+                    a
+                        color: #FFF
+                        text-decoration: none
+
+            @media (max-width: $layout-breakpoint-small)
+                position: relative
+                padding-top: 10px
+                margin-top: 10px
+                &::before
+                    display: block
+                    width: 100px
+                    height: 3px
+                    position: relative
+                    border-radius: 3px
+                    background-color: #fff
+                    content: ''
+                    position: absolute
+                    left: 50%
+                    transform: translateX(-50%)
+                    top: -10px
+            p
+                margin: 0
+                padding: 0
+            &_Reseaux
+                display: flex
+                justify-content: center
+                align-items: center
+                flex-direction: column
+                div
+                    display: flex
+                    width: 100%
+                    margin-top: 20px
+                    gap: 20px
+                    justify-content: space-evenly
+                    a
+                        display: inline-flex
+                        background-color: white
+                        border-radius: 50%
+                        padding: 10px
+                        img
+                            width: 40px
+
+        #Hours_info
+            display: flex
+            flex-direction: column
+            table
+                th
+                    text-align: left
+                    padding-right: 20px
+                tr
+                    text-align: right
+    #Footer_bottom-container
+        display: flex
+        justify-content: flex-end
+        margin: 0 30px
+        padding-top: 30px
+        padding-bottom: 5px
+        p
+            padding: 0
+            margin: 0
+            a
+                text-decoration: none
+                color: inherit
+@media (max-width: $layout-breakpoint-small)
+    footer
+        padding: 1rem
+        // #Contact_container
+        //     #Google_map
+        //         width: 100%
+        //         display: flex
+        //         justify-content: center
+        //         // padding: 50px
+        //         iframe
+        //             margin: auto
+        //             width: 30rem
+        #Hours_info
+            text-align: center

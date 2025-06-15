@@ -1,0 +1,42 @@
+services:
+  front:
+    container_name: cfo-frontend
+    build:
+      context: ./front
+      dockerfile: Dockerfile.production
+      args:
+        - VITE_REACT_APP_API_URL=http://crossfitobernai.com/api
+    ports:
+      - "5174:5174"
+    restart: unless-stopped
+
+  back:
+    container_name: cfo-backend
+    build:
+      context: ./back
+      dockerfile: Dockerfile.production
+    environment:
+      - NODE_ENV=production
+    ports:
+      - "3000:3000"
+    env_file:
+      - back/.env.production
+    restart: unless-stopped
+  nginx:
+    container_name: cfo-nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.dev
+    ports:
+      - "80:80"
+      - "8080:8080"
+      - "443:443"
+    depends_on:
+      - front
+      - back
+    restart: unless-stopped
+
+networks:
+  default:
+    driver: bridge
+    name: prod_network_cfo

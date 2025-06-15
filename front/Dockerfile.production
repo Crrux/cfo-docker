@@ -1,0 +1,22 @@
+FROM node:alpine AS build
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+
+FROM node:alpine
+
+COPY --from=build /app/dist /app/dist
+WORKDIR /app
+COPY package*.json ./
+RUN npm install --production
+EXPOSE 5174
+
+ARG VITE_REACT_APP_API_URL
+
+ENV VITE_REACT_APP_API_URL=$VITE_REACT_APP_API_URL
+
+CMD ["npm", "run", "preview"]

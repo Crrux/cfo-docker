@@ -1,0 +1,126 @@
+
+.PopupPC
+    position: fixed
+    bottom: 0
+    right: 7%
+    width: 25%
+    min-width: 250px
+    max-width: 600px
+    background-color: #000
+    color: black
+    margin-right: 10px
+    padding-top: 1rem
+    padding-bottom: 1rem
+    border-radius: 10px 10px 0 0
+    animation: PopupOpenPC 1s ease-in-out forwards
+    z-index: 100
+    @media screen and (max-width: $layout-breakpoint-tablet-max)
+
+    div
+        display: flex
+        width: 100%
+        flex-wrap: wrap
+        button
+            position: absolute
+            right: 3px
+            top: 3px
+            margin-left: auto
+            margin-bottom: 10px
+            border: 0
+            border-radius: 50%
+            width: 2rem
+            height: 2rem
+            display: flex
+            flex-flow: column nowrap
+            justify-content: center
+            align-items: center
+            cursor: pointer
+        img
+            width: 100%
+            padding: 10px
+
+    &.close-animation-pc
+        animation: PopupClosePC 1s ease-in-out forwards
+
+@keyframes PopupOpenPC
+    0%
+        transform: translateY(100%)
+    100%
+        transform: translateY(0%)
+
+@keyframes PopupClosePC
+    0%
+        transform: translateY(0%)
+    100%
+        transform: translateY(100%)
+
+.PopupTel
+    top: 10px
+    >div
+        color: black
+        display: flex
+        justify-content: flex-end
+        padding: 10px
+        border-radius: 5px
+    div
+        display: flex
+        justify-content: space-between
+        flex-wrap: nowrap
+        width: 100%
+        gap: 15px
+        justify-content: center
+        align-items: center
+        a
+            text-decoration: none
+            color: black
+            flex-grow: 1
+            display: flex
+            justify-content: center
+            align-items: center
+            height: 100%
+            // margin-inline: 3rem
+            #PopupImageTel
+                width: 100%
+            p
+                padding: 0
+                margin: 10px
+        button
+            margin-left: auto
+            margin-bottom: 10px
+            border: 0
+            border-radius: 50%
+            width: 3rem
+            height: 2rem
+            display: flex
+            justify-content: center
+            align-items: center
+            cursor: pointer
+.scroll
+    position: fixed
+    z-index: 100
+    top: 10
+    left: 50%
+    transform: translateX(-50%)
+    width: 75dvw
+    animation: opacityChange .3s linear forwards
+    >div
+        background-color: #000
+        border-radius: 10px
+        border: 1px solid #fff
+        overflow: hidden
+
+@keyframes opacityChange
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+
+.fixe
+    background: transparent
+    // background-color: #000
+    width: 100%
+    // margin-top: 10px
+    margin-bottom: 20px
+    z-index: 0
+    button
+        display: none

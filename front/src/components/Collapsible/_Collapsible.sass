@@ -1,0 +1,122 @@
+$button-height: 40px
+$button-height-small: 40px
+$temps-animations: 0.5s
+
+.collapsible
+    display: flex
+    flex-direction: column
+    position: relative
+    font-size: 20px
+    &-button
+        z-index: 10
+        font-family: 'Roboto Condensed', sans-serif
+        letter-spacing: 2px
+        border: none
+        padding: 0
+        position: absolute
+        z-index: 1
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+        width: 100%
+        height: $button-height
+        color: white
+        border-radius: 2px
+        cursor: pointer
+        user-select: none
+        // background-color: #247d8b
+        // background-color: #5a2c63
+        // TODO 390 pxl > text deborde
+        &::after
+            content: ""
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            //  background-color: #00000075
+            z-index: 11
+        // @media screen and ( max-width: $layout-breakpoint-small )
+        //     font-size: 1rem
+        //     font-weight: 600
+        //     height: $button-height-small
+        //     border-radius: 2px
+        p
+            font-size: 1.5rem
+            flex-grow: 1
+            text-align: center
+            padding-left: 10px
+            white-space: nowrap
+            z-index: 12
+            text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000, 1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000
+            @media screen and ( max-width: $layout-breakpoint-small )
+                font-size: calc(15px + 0.6vw)
+                // padding-left: 5px
+        i
+            margin-right: 10px
+            font-size: 1.5rem
+            z-index: 12
+        .icon-down-rotated
+            animation: rotate-down $temps-animations linear forwards
+        .icon-up-rotated
+            animation: rotate-up $temps-animations linear forwards
+        .collapsible-button
+            &_title
+                // font-size: 1.5rem
+                font-weight: 800
+                color: fff
+                span
+                    // &:nth-child(4n+1)
+                    //     color: #36d6e7
+                    // &:nth-child(4n+2)
+                    //     color: #f9a726
+                    // &:nth-child(4n+3)
+                    //     color: #da4f84
+                    // &:nth-child(4n+4)
+                    //     color: #FFF
+
+    .collapsible-content
+        z-index: 0
+        position: relative
+        // background-color: #F6F6F673
+        background: transparent
+        max-height: 0
+        width: 100%
+        overflow: hidden
+        transition: max-height $temps-animations ease-out
+        padding-top: $button-height
+        border-radius: 5px 5px 5px 5px
+        &::after
+            opacity: 1
+            padding-bottom: 2rem
+            content: ""
+            position: absolute
+            bottom: 0
+            left: 50%
+            transform: translateX(-50%)
+            width: 100%
+            height: 100%
+            // background: rgba(0,0,0,0.5)
+            border-bottom: 2px solid light-dark(#000, #ffffff6b)
+            z-index: 9999
+        @media screen and ( max-width: $layout-breakpoint-small )
+            padding-top: $button-height-small
+        p
+            padding: 0 20px 0 20px
+
+        &.active
+            max-height: 500px
+            animation: 0.2s openTab ease-out forwards
+
+@keyframes rotate-down
+    from
+        transform: rotate(360deg)
+    to
+        transform: rotate(180deg)
+
+@keyframes rotate-up
+    from
+        transform: rotate(180deg)
+    to
+        transform: rotate(360deg)

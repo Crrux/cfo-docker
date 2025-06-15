@@ -1,0 +1,48 @@
+.Home
+    // min-height: 2000px
+    padding: 0
+    .text__container
+        padding: 0 30px
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: flex-start
+        h2, ul
+            align-self: center
+        @media screen and (max-width: $layout-breakpoint-small)
+            p, ul
+                margin-right: 5vw
+    #Slideshow_container
+        aspect-ratio: 16/9
+        width: 70%
+        margin-bottom: 30px
+        // max-width: 1080px
+        padding: 0 30px
+        img
+            width: 100%
+
+        @media screen and (max-width: $layout-breakpoint-small)
+            width: 100%
+            padding: 0 5px
+    .title_container
+        p
+            font-size: calc(15px + 2.5vw)
+            top: 25%
+            @media screen and (max-width: $test)
+                font-size: calc(15px + 5vw)
+        h1
+            font-size: calc(15px + 5vw)
+            top: 58%
+            letter-spacing: 20px
+            @media screen and (max-width: $layout-breakpoint-tablet-max) and (min-width: $layout-breakpoint-tablet-min)
+                font-size: calc(15px + 3.4vw)
+                letter-spacing: 13px
+            @media screen and (max-width: $test)
+                font-size: calc(15px + 11.7vw)
+                letter-spacing: 13px
+
+    .Slideshow
+        &_section
+            display: flex
+            justify-content: center
+            width: 100%

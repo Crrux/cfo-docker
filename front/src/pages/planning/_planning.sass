@@ -1,0 +1,20 @@
+.Planning
+    .title_container
+        p
+            top: 20%
+            font-size: calc(15px + 2.5vw)
+            @media screen and (max-width: $test)
+                font-size: calc(15px + 5vw)
+        h1
+            top: 58%
+            font-size: calc(15px + 4vw)
+            @media screen and (max-width: $layout-breakpoint-tablet-max) and (min-width: $layout-breakpoint-tablet-min)
+                font-size: calc(15px + 3.4vw)
+            @media screen and (max-width: $test)
+                font-size: calc(15px + 11.7vw)
+    img
+        width: 100%
+        z-index: -2
+        transition: transform .1s
+            // &:hover
+            //     transform: scale(1.5) translate(30px)

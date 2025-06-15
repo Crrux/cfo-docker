@@ -1,0 +1,13 @@
+.env.production
+
+.gitignore
+
+eslint.config.js
+.eslintrc.js
+
+prettier.config.js
+
+.vscode
+node_modules
+
+readme.md
