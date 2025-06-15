@@ -19,8 +19,6 @@ services:
       - NODE_ENV=production
     ports:
       - "3000:3000"
-    env_file:
-      - back/.env.production
     restart: unless-stopped
   nginx:
     container_name: cfo-nginx
