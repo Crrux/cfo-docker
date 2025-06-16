@@ -6,6 +6,12 @@ services:
       dockerfile: Dockerfile.dev
     ports:
       - "5174:5174"
+    volumes:
+      - type: bind
+        source: ./front
+        target: /app
+      - type: volume
+        target: /app/node_modules
 
   back:
     container_name: cfo-backend
@@ -16,6 +22,12 @@ services:
       - "3000:3000"
     env_file:
     - back/.env.dev
+    volumes:
+      - type: bind
+        source: ./back
+        target: /app
+      - type: volume
+        target: /app/node_modules
   nginx:
     container_name: cfo-nginx
     build:
