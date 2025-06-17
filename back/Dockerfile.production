@@ -9,6 +9,6 @@ FROM node:alpine
 COPY  --from=build /app/dist /app/dist
 WORKDIR /app
 COPY package*.json ./
-RUN npm install --production
+RUN npm install --omit=dev
 EXPOSE 80
 CMD ["npm", "run", "start:prod"]

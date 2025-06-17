@@ -28,6 +28,9 @@ services:
         target: /app
       - type: volume
         target: /app/node_modules
+    depends_on:
+      - db
+  
   nginx:
     container_name: cfo-nginx
     build:
@@ -40,6 +43,25 @@ services:
     depends_on:
       - front
       - back
+      
+  db:
+    container_name: cfo-db
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - type: volume
+        source: db-dev-cfo
+        target: /var/lib/postgresql/data
+      - type: bind
+        source: ./db/init
+        target: /docker-entrypoint-initdb.d
+    env_file:
+      - db/.env.dev
+
+volumes:
+  db-dev-cfo:
+    external: true
 
 networks:
   default:
