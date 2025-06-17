@@ -10,13 +10,15 @@ RUN npm run build
 FROM node:alpine
 
 COPY --from=build /app/dist /app/dist
+COPY --from=build /app/ecosystem.config.cjs /app/ecosystem.config.cjs
 WORKDIR /app
 COPY package*.json ./
 RUN npm install --omit=dev
+RUN npm install pm2 -g
 EXPOSE 5174
 
 ARG VITE_REACT_APP_API_URL
 
 ENV VITE_REACT_APP_API_URL=$VITE_REACT_APP_API_URL
 
-CMD ["npm", "run", "preview"]
+CMD ["pm2-runtime", "ecosystem.config.cjs"]
