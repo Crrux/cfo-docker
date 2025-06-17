@@ -24,11 +24,6 @@ export class ContactController {
     }
   }
 
-  /**
-   * Endpoint protégé pour déclencher manuellement le nettoyage des données
-   * Note: Dans un environnement de production réel, cet endpoint devrait être protégé
-   * par une authentification admin
-   */
   @Post('cleanup')
   async triggerCleanup(@Response() response) {
     try {
