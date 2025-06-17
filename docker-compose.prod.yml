@@ -4,10 +4,6 @@ services:
     build:
       context: ./front
       dockerfile: Dockerfile.production
-      args:
-        - VITE_REACT_APP_API_URL=http://crossfitobernai.com/api
-    ports:
-      - "5174:5174"
     restart: unless-stopped
 
   back:
@@ -17,22 +13,38 @@ services:
       dockerfile: Dockerfile.production
     environment:
       - NODE_ENV=production
-    ports:
-      - "3000:3000"
     restart: unless-stopped
+    depends_on:
+      - db
+
   nginx:
     container_name: cfo-nginx
     build:
       context: ./nginx
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.production
     ports:
       - "80:80"
-      - "8080:8080"
       - "443:443"
     depends_on:
       - front
       - back
     restart: unless-stopped
+      
+  db:
+    container_name: cfo-db-prod
+    image: postgres:latest
+    restart: unless-stopped
+    volumes:
+      - type: volume
+        source: db-prod-cfo
+        target: /var/lib/postgresql/data
+      - type: bind
+        source: ./db/init
+        target: /docker-entrypoint-initdb.d
+
+volumes:
+  db-prod-cfo:
+    external: true
 
 networks:
   default:
