@@ -1,11 +1,17 @@
 import globals from "globals";
-import pluginJs from "@eslint/js";
+import js from "@eslint/js";
 import tseslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
-import prettier from "eslint-plugin-prettier";
+import prettierPlugin from "eslint-plugin-prettier";
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-/** @type {import('eslint').Linter.Config[]} */
+// Create the equivalent of __dirname for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 export default [
+  js.configs.recommended,
   {
     files: ["**/*.{js,mjs,cjs,ts}"],
     languageOptions: {
@@ -15,11 +21,13 @@ export default [
         tsconfigRootDir: __dirname,
         sourceType: 'module',
       },
-      globals: globals.browser,
+      globals: {
+        ...globals.browser
+      },
     },
     plugins: {
       '@typescript-eslint': tseslint,
-      'prettier': prettier,
+      'prettier': prettierPlugin
     },
     rules: {
       '@typescript-eslint/interface-name-prefix': 'off',
@@ -28,8 +36,6 @@ export default [
       '@typescript-eslint/no-explicit-any': 'off',
       'prettier/prettier': ['error', { endOfLine: 'auto' }],
       'no-console': 'error',
-    },
-  },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
+    }
+  }
 ];
