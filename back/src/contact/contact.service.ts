@@ -1,5 +1,5 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
-import { MailerService } from '@nestjs-modules/mailer';
+import * as nodemailer from 'nodemailer';
 import mailer from 'src/environnement/mailer';
 import { ConfigType } from '@nestjs/config';
 import { SendFormDto } from './interface/send-form.dto';
@@ -7,19 +7,29 @@ import { SendFormDto } from './interface/send-form.dto';
 @Injectable()
 export class ContactService {
   private readonly logger = new Logger(ContactService.name);
+  private transporter: nodemailer.Transporter;
 
   constructor(
-    private readonly mailService: MailerService,
     @Inject(mailer.KEY)
     private mailerConfig: ConfigType<typeof mailer>,
-  ) {}
+  ) {
+    this.transporter = nodemailer.createTransport({
+      host: this.mailerConfig.HOSTNAME,
+      port: 465,
+      secure: true,
+      auth: {
+        user: this.mailerConfig.USERNAME,
+        pass: this.mailerConfig.PASSWORD,
+      },
+    });
+  }
 
   async mailer(body: SendFormDto): Promise<void> {
     const currentDate = new Date();
     const Reference = `${currentDate.toISOString().replace(/\D/g, '')}${body.firstname[0]}${body.name[0]}${body.tel.slice(-4)}`;
     body.reference = Reference.toUpperCase();
     try {
-      await this.mailService.sendMail({
+      await this.transporter.sendMail({
         from: `${this.mailerConfig.USERNAME_NAME} <${this.mailerConfig.USERNAME}>`,
         to: `${this.mailerConfig.SUBJECT}`,
         subject: `Formulaire CFO ${body.name.charAt(0).toUpperCase() + body.name.slice(1).toLowerCase()} ${body.firstname.charAt(0).toUpperCase() + body.firstname.slice(1).toLowerCase()}`,
