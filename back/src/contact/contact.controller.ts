@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Req, Response } from '@nestjs/common';
+import { Body, Controller, Post, Response } from '@nestjs/common';
 import { ContactService } from './contact.service';
 import { SendFormDto } from './interface/send-form.dto';
 
