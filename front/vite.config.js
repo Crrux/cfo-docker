@@ -20,6 +20,12 @@ export default defineConfig({
     strictPort: true,
     allowedHosts: ['front'],
     watch: { usePolling: true },
+    hmr: {
+      host: 'localhost',
+      port: 5174,
+      protocol: 'ws',
+      clientPort: 80
+    }
   },
   preview: {
     port: 5174,
