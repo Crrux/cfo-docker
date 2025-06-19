@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import TitleBackgroundImage from "/assets/title_background/TitleBackground_Contact.webp";
 import LoadingSpinner from '../../components/Loading/Spinner/Spinner';
 import LegalNotices from "../../layout/legal_notices/legal_notices";
-
+import api from "../../services/api";
 Modal.setAppElement("#root");
 
 // Validation patterns
@@ -223,13 +223,12 @@ function Contact() {
 
     setIsFormLoading(true);
     try {
-      const response = await axios.post(
+      const response = await api.post(
         `/contact`,
         contact,
         {
           headers: {
             'Content-Type': 'application/json',
-            'X-App-Key': import.meta.env.VITE_REACT_API_KEY
           },
         }
       );

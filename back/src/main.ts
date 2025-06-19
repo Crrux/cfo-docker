@@ -18,8 +18,8 @@ async function bootstrap() {
     maxAge: 600,
   });
 
-  // // Préfixe global pour toutes les routes API
-  // app.setGlobalPrefix('api');
+  // Préfixe global pour toutes les routes API
+  app.setGlobalPrefix('api');
 
   // Middleware pour ajouter des en-têtes de sécurité supplémentaires
   app.use((req: Request, res: Response, next: NextFunction) => {
