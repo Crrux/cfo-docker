@@ -6,18 +6,23 @@ import { useAuth } from "../../../context/AuthContext";
 const ContactsPage = () => {
     const [contacts, setContacts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [reloading, setReloading] = useState(false);
     const [error, setError] = useState(null);
     const [selectedContact, setSelectedContact] = useState(null);
     const { user } = useAuth();
 
     useEffect(() => {
         document.title = "Formulaires de Contact | Admin | CrossFit Obernai";
-        fetchContacts();
+        fetchContacts(false);
     }, []);
 
-    const fetchContacts = async () => {
+    const fetchContacts = async (isReloading = false) => {
         try {
-            setLoading(true);
+            if (isReloading) {
+                setReloading(true);
+            } else {
+                setLoading(true);
+            }
             const response = await api.get("/contact");
             setContacts(response.data);
             setError(null);
@@ -26,6 +31,7 @@ const ContactsPage = () => {
             setError("Impossible de charger les formulaires de contact. Veuillez réessayer plus tard.");
         } finally {
             setLoading(false);
+            setReloading(false);
         }
     };
 
@@ -48,13 +54,34 @@ const ContactsPage = () => {
         setSelectedContact(null);
     };
 
+    const handleReload = () => {
+        fetchContacts(true);
+    };
+
     return (
         <div className="contacts-admin">
             <div className="contacts-header">
                 <h1>Formulaires de Contact</h1>
-                <Link to="/admin/dashboard" className="back-button">
-                    Retour au Dashboard
-                </Link>
+                <div className="header-buttons">
+                    <button
+                        className="reload-button"
+                        onClick={handleReload}
+                        disabled={loading || reloading}
+                    >
+                        {reloading ? (
+                            <>
+                                <span className="spin">↻</span> Rechargement...
+                            </>
+                        ) : (
+                            <>
+                                ↻ Actualiser
+                            </>
+                        )}
+                    </button>
+                    <Link to="/admin/dashboard" className="back-button">
+                        Retour au Dashboard
+                    </Link>
+                </div>
             </div>
 
             {error && (

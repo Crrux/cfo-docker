@@ -1656,7 +1656,17 @@ footer #Footer_bottom-container p a {
     align-items: flex-start;
   }
 }
-.contacts-admin .contacts-header .back-button {
+.contacts-admin .contacts-header .header-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+@media (max-width: 600px) {
+  .contacts-admin .contacts-header .header-buttons {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+.contacts-admin .contacts-header .back-button, .contacts-admin .contacts-header .reload-button {
   background-color: #3498db;
   color: white;
   border: none;
@@ -1665,8 +1675,33 @@ footer #Footer_bottom-container p a {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-.contacts-admin .contacts-header .back-button:hover {
+.contacts-admin .contacts-header .back-button:hover, .contacts-admin .contacts-header .reload-button:hover {
   background-color: #2980b9;
+}
+.contacts-admin .contacts-header .reload-button {
+  background-color: #2ecc71;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.contacts-admin .contacts-header .reload-button:hover {
+  background-color: #27ae60;
+}
+.contacts-admin .contacts-header .reload-button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+.contacts-admin .contacts-header .reload-button .spin {
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 .contacts-admin .contacts-table-container {
   width: 100%;
