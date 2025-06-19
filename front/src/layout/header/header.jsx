@@ -46,7 +46,7 @@ function Header() {
               <img src={Logo} id="navburger-logo" alt="Logo Crossfit Obernai - Link to Home" />
             </Link>
           </li>
-          <li className="navbar__item">
+          <li className="navbar__item navbar__item--home">
             <Link
               to={"/"}
               className={`navbar__link`}

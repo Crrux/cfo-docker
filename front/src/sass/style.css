@@ -694,7 +694,7 @@ header .navbar a {
   }
 }
 @media screen and (min-width: 1024px) {
-  header .navbar__link:hover:not(.activeNavLink):after {
+  header .navbar__link:hover:not(.activeNavLink, .navbar__item--dashboard):after {
     content: "";
     display: block;
     position: absolute;
