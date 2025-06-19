@@ -26,7 +26,10 @@ export class DataCleanupService {
       const threeYearsAgo = new Date();
       threeYearsAgo.setFullYear(threeYearsAgo.getFullYear() - 3);
 
-      // Suppression des contacts de plus de 3 ans
+      // // calcul de la date limite (5 minutes avant maintenant)
+      // const fiveMinutesAgo = new Date();
+      // fiveMinutesAgo.setMinutes(fiveMinutesAgo.getMinutes() - 5);
+
       const contactDeleteResult = await this.contactRepository.delete({
         createdAt: LessThan(threeYearsAgo),
       });
