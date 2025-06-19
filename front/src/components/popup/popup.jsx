@@ -13,10 +13,10 @@ function Popup() {
   const [isTabletorAbove, setIsTabletorAbove] = useState();
 
   const location = useLocation();
-
-  // Ajouter cet useEffect pour reset le popup
   useEffect(() => {
-    if (location.pathname != "/contact") {
+    if (location.pathname.startsWith("/admin") || location.pathname === "/contact") {
+      setIsOpen(false);
+    } else {
       setIsOpen(true);
       setIsButtonClicked(false);
     }
