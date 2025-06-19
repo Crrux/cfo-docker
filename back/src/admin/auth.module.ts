@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import { Admin } from './entities/admin.entity';
 import { AuthController } from './auth.controller';
+import { AdminController } from './admin.controller';
 import { AuthService } from './auth.service';
 import { AdminService } from './admin.service';
 import { AdminInitService } from './admin-init.service';
@@ -25,7 +26,7 @@ import { LocalStrategy } from './strategies/local.strategy';
       inject: [ConfigService],
     }),
   ],
-  controllers: [AuthController],
+  controllers: [AuthController, AdminController],
   providers: [
     AuthService,
     AdminService,

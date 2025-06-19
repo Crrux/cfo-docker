@@ -18,6 +18,7 @@ import Home_redir from "./pages/home/home_redir";
 import Login from "./pages/admin/login/login";
 import Dashboard from "./pages/admin/dashboard/dashboard";
 import ContactsPage from "./pages/admin/contacts/contacts";
+import Users from "./pages/admin/users/users";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
 
@@ -32,7 +33,8 @@ function App() {
         <AuthProvider>
           <HelmetRendering />
           <Popup />
-          <Header />        <Routes>
+          <Header />
+          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="cours" element={<Class />} />
             <Route path="planning" element={<Planning />} />
@@ -57,6 +59,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <ContactsPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="admin/users"
+              element={
+                <PrivateRoute>
+                  <Users />
                 </PrivateRoute>
               }
             />

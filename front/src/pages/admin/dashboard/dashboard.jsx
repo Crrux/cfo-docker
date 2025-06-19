@@ -92,10 +92,10 @@ const Dashboard = () => {
                         <p>Gérez vos statistiques et données ici.</p>
                     </div>
 
-                    <div className="dashboard-card">
+                    <Link to="/admin/users" className="dashboard-card">
                         <h3>Utilisateurs</h3>
                         <p>Gérez les comptes administrateurs.</p>
-                    </div>
+                    </Link>
 
                     <div className="dashboard-card">
                         <h3>Contenu</h3>

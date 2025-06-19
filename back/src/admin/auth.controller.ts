@@ -7,6 +7,7 @@ import {
   Get,
   HttpCode,
   HttpStatus,
+  ForbiddenException,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AdminService } from './admin.service';
@@ -22,9 +23,17 @@ export class AuthController {
     private readonly adminService: AdminService,
   ) {}
 
+  @UseGuards(JwtAuthGuard)
   @Post('register')
   @HttpCode(HttpStatus.CREATED)
-  async register(@Body() createAdminDto: CreateAdminDto) {
+  async register(@Body() createAdminDto: CreateAdminDto, @Request() req) {
+    // Vérifier que l'utilisateur actuel a les droits pour créer un compte
+    if (!req.user.superAdmin && !req.user.canManageUsers) {
+      throw new ForbiddenException(
+        "Vous n'avez pas les droits pour créer un nouvel administrateur",
+      );
+    }
+
     const admin = await this.adminService.create(createAdminDto);
     return { message: 'Admin créé avec succès', id: admin.id };
   }

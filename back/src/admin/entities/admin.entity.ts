@@ -22,6 +22,12 @@ export class Admin {
   @Column({ default: true })
   isActive: boolean;
 
+  @Column({ default: false })
+  superAdmin: boolean;
+
+  @Column({ default: false })
+  canManageUsers: boolean;
+
   @CreateDateColumn()
   createdAt: Date;
 
