@@ -236,7 +236,6 @@ const Users = () => {
                                 <th>Nom d'utilisateur</th>
                                 <th>Date de création</th>
                                 <th>Statut</th>
-                                <th>Super Admin</th>
                                 <th>Peut gérer les utilisateurs</th>
                                 <th>Actions</th>
                             </tr>
@@ -253,7 +252,6 @@ const Users = () => {
                                         <td>{admin.username}</td>
                                         <td>{new Date(admin.createdAt).toLocaleDateString('fr-FR')}</td>
                                         <td>{admin.isActive ? "Actif" : "Inactif"}</td>
-                                        <td>{admin.superAdmin ? "Oui" : "Non"}</td>
                                         <td>{admin.canManageUsers ? "Oui" : "Non"}</td>
                                         <td className="user-actions">
                                             {/* Bouton pour activer/désactiver */}
