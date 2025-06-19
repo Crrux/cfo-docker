@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
 
 
@@ -53,10 +53,10 @@ const Dashboard = () => {
                         <p>Gérez le contenu du site Web.</p>
                     </div>
 
-                    <div className="dashboard-card">
+                    <Link to="/admin/contacts" className="dashboard-card">
                         <h3>Messages</h3>
                         <p>Gérez les messages reçus via le formulaire de contact.</p>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -7,12 +7,13 @@ import mailer from '../environnement/mailer';
 import { Contact } from './entities/contact.entity';
 import { ContactError } from './entities/contact-error.entity';
 import { DataCleanupService } from './tasks/data-cleanup.service';
+import { AuthModule } from '../admin/auth.module';
 
-@Module({
-  imports: [
+@Module({  imports: [
     ConfigModule.forFeature(mailer),
     ConfigModule,
     TypeOrmModule.forFeature([Contact, ContactError]),
+    AuthModule,
   ],
   controllers: [ContactController],
   providers: [ContactService, DataCleanupService],

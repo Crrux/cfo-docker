@@ -1,7 +1,8 @@
-import { Body, Controller, Post, Response, Get } from '@nestjs/common';
+import { Body, Controller, Post, Response, Get, UseGuards } from '@nestjs/common';
 import { ContactService } from './contact.service';
 import { SendFormDto } from './interface/send-form.dto';
 import { DataCleanupService } from './tasks/data-cleanup.service';
+import { JwtAuthGuard } from 'src/admin/guards/jwt-auth.guard';
 
 @Controller('contact')
 export class ContactController {
@@ -23,8 +24,13 @@ export class ContactController {
       });
     }
   }
-
+  @Get()
+  @UseGuards(JwtAuthGuard)
+  async getAllContacts() {
+    return await this.ContactService.findAll();
+  }
   @Post('cleanup')
+  @UseGuards(JwtAuthGuard)
   async triggerCleanup(@Response() response) {
     try {
       const result = await this.dataCleanupService.triggerManualCleanup();

@@ -111,4 +111,12 @@ export class ContactService {
       this.logger.error('Failed to save contact error to database', dbError);
     }
   }
+
+  async findAll() {
+    return this.contactRepository.find({
+      order: {
+        createdAt: 'DESC',
+      },
+    });
+  }
 }

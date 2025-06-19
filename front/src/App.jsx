@@ -17,6 +17,7 @@ import Home_redir from "./pages/home/home_redir";
 
 import Login from "./pages/admin/login/login";
 import Dashboard from "./pages/admin/dashboard/dashboard";
+import ContactsPage from "./pages/admin/contacts/contacts";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
 
@@ -48,6 +49,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <Dashboard />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="admin/contacts"
+              element={
+                <PrivateRoute>
+                  <ContactsPage />
                 </PrivateRoute>
               }
             />
