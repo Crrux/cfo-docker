@@ -224,7 +224,7 @@ function Contact() {
     setIsFormLoading(true);
     try {
       const response = await axios.post(
-        `/api/contact`,
+        `/contact`,
         contact,
         {
           headers: {
