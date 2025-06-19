@@ -13,8 +13,7 @@ export default defineConfig({
         }
       ]
     })
-  ],
-  server: {
+  ], server: {
     host: true,
     port: 5174,
     strictPort: true,
@@ -25,6 +24,13 @@ export default defineConfig({
       port: 5174,
       protocol: 'ws',
       clientPort: 80
+    },
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        secure: false
+      }
     }
   },
   preview: {

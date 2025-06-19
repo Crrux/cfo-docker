@@ -15,6 +15,11 @@ import HelmetRendering from "./layout/helmet/helmet";
 import Popup from "./components/popup/popup";
 import Home_redir from "./pages/home/home_redir";
 
+import Login from "./pages/admin/login/login";
+import Dashboard from "./pages/admin/dashboard/dashboard";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import { AuthProvider } from "./context/AuthContext";
+
 function App() {
   return (
     <>
@@ -23,22 +28,32 @@ function App() {
           v7_startTransition: true,
         }}
       >
-        <HelmetRendering />
-        <Popup />
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="cours" element={<Class />} />
-          <Route path="planning" element={<Planning />} />
-          <Route path="offres" element={<Offers />} />
-          {/* <Route path="coachs" element={<Coachs />} /> */}
-          <Route path="contact" element={<Contact />} />
-          <Route path="events" element={<Events />} />
-          <Route path="*" element={<Error />} />
-          <Route path="mentions-legales" element={<MentionLegale />} />
-          <Route path="home" element={<Home_redir />} />
-        </Routes>
-        <Footer />
+        <AuthProvider>
+          <HelmetRendering />
+          <Popup />
+          <Header />        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="cours" element={<Class />} />
+            <Route path="planning" element={<Planning />} />
+            <Route path="offres" element={<Offers />} />
+            {/* <Route path="coachs" element={<Coachs />} /> */}
+            <Route path="contact" element={<Contact />} />
+            <Route path="events" element={<Events />} />
+            <Route path="*" element={<Error />} />
+            <Route path="mentions-legales" element={<MentionLegale />} />
+            <Route path="home" element={<Home_redir />} />
+            <Route path="admin/login" element={<Login />} />
+            <Route
+              path="admin/dashboard"
+              element={
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
+              }
+            />
+          </Routes>
+          <Footer />
+        </AuthProvider>
       </BrowserRouter>
     </>
   );

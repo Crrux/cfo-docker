@@ -1,0 +1,72 @@
+.admin-dashboard
+    padding: 2rem
+    max-width: 1200px
+    margin: 0 auto
+    min-height: 80vh
+
+.admin-header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 2rem
+
+h1
+    margin: 0
+    color: #333
+
+.logout-button
+    padding: 0.5rem 1rem
+    background-color: #e74c3c
+    color: white
+    border: none
+    border-radius: 4px
+    font-size: 0.9rem
+    cursor: pointer
+    transition: background-color 0.2s
+
+    &:hover
+        background-color: #c0392b
+
+    &:disabled
+        background-color: #e17055
+        cursor: not-allowed
+
+.welcome-section
+    background-color: #f8f9fa
+    padding: 1.5rem
+    border-radius: 8px
+    margin-bottom: 2rem
+    border-left: 4px solid #333
+
+h2
+    margin-top: 0
+    color: #333
+
+p
+    margin-bottom: 0
+    color: #666
+
+.dashboard-grid
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))
+    gap: 1.5rem
+
+.dashboard-card
+    background-color: white
+    padding: 1.5rem
+    border-radius: 8px
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05)
+    transition: transform 0.2s, box-shadow 0.2s
+
+    &:hover
+        transform: translateY(-5px)
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1)
+
+h3
+    margin-top: 0
+    color: #333
+    margin-bottom: 0.75rem
+
+p
+    margin-bottom: 0
+    color: #666
