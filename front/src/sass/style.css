@@ -499,6 +499,43 @@ header #Header_Logo {
 header #home_link {
   font-size: 2rem;
 }
+header .navbar__item--dashboard {
+  margin-left: 1rem;
+}
+header .navbar__item--dashboard .navbar__link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  background-color: #3498db;
+  color: white;
+  transition: background-color 0.3s, transform 0.2s;
+}
+header .navbar__item--dashboard .navbar__link:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+header .navbar__item--dashboard .navbar__link i {
+  font-size: 1.2rem;
+}
+header .navbar__item--dashboard .navbar__link.activeNavLink {
+  background-color: #2c3e50;
+}
+header .navbar__item--dashboard .navbar__link.activeNavLink:after {
+  display: none;
+}
+@media screen and (max-width: 767.98px) {
+  header .navbar__item--dashboard {
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+  header .navbar__item--dashboard .navbar__link {
+    width: 100%;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+}
 header .navbar {
   display: flex;
   flex-wrap: wrap;
@@ -1470,11 +1507,11 @@ footer #Footer_bottom-container p a {
 }
 .admin-dashboard h1 {
   margin: 0;
-  color: #333;
+  color: light-dark(#000, #f5f5f5);
 }
 .admin-dashboard .logout-button {
   padding: 0.5rem 1rem;
-  background-color: #e74c3c;
+  background-color: light-dark(#e74c3c, #c0392b);
   color: white;
   border: none;
   border-radius: 4px;
@@ -1595,17 +1632,29 @@ footer #Footer_bottom-container p a {
 }
 
 .contacts-admin {
-  color: #f5f5f5;
-  background-color: #232627;
+  color: light-dark(#000, #f5f5f5);
+  background-color: light-dark(#f5f5f5, #232627);
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
+  padding: 1rem;
 }
 .contacts-admin .contacts-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.contacts-admin .contacts-header h1 {
+  margin: 0;
+}
+@media (max-width: 600px) {
+  .contacts-admin .contacts-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 .contacts-admin .contacts-header .back-button {
   background-color: #3498db;
@@ -1619,6 +1668,12 @@ footer #Footer_bottom-container p a {
 .contacts-admin .contacts-header .back-button:hover {
   background-color: #2980b9;
 }
+.contacts-admin .contacts-table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  -webkit-overflow-scrolling: touch;
+}
 .contacts-admin .contacts-table {
   width: 100%;
   border-collapse: collapse;
@@ -1629,23 +1684,73 @@ footer #Footer_bottom-container p a {
   text-align: left;
   border: 1px solid #e0e0e0;
 }
+@media (max-width: 1024px) {
+  .contacts-admin .contacts-table th, .contacts-admin .contacts-table td {
+    min-width: 100px;
+  }
+  .contacts-admin .contacts-table th:first-child, .contacts-admin .contacts-table td:first-child {
+    min-width: 130px;
+  }
+}
 .contacts-admin .contacts-table th {
-  background-color: #000000;
+  background-color: light-dark(#f0f0f0, #2c3e50);
   font-weight: 600;
 }
 .contacts-admin .contacts-table tr:nth-child(even) {
-  background-color: #1a1a1a;
+  background-color: light-dark(#f9f9f9, #34495e);
 }
 .contacts-admin .contacts-table tr:hover {
-  background-color: #333333;
+  background-color: light-dark(#f1f1f1, #3a3a3a);
+}
+@media (max-width: 600px) {
+  .contacts-admin .contacts-table {
+    border: 0;
+  }
+  .contacts-admin .contacts-table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  .contacts-admin .contacts-table tr {
+    border: 1px solid light-dark(#e0e0e0, #2c3e50);
+    border-radius: 4px;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .contacts-admin .contacts-table tr:last-child {
+    margin-bottom: 0;
+  }
+  .contacts-admin .contacts-table td {
+    border: none;
+    display: block;
+    font-size: 0.9em;
+    text-align: left;
+    position: relative;
+    padding-left: 35%;
+    min-width: auto !important;
+  }
+  .contacts-admin .contacts-table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: absolute;
+    left: 0.75rem;
+    top: 0.75rem;
+  }
 }
 .contacts-admin .contact-details {
   cursor: pointer;
-  color: #3498db;
+  color: light-dark(#3498db, #2980b9);
   text-decoration: underline;
 }
 .contacts-admin .contact-details:hover {
-  color: #2980b9;
+  color: light-dark(#2980b9, #3498db);
 }
 .contacts-admin .modal {
   position: fixed;
@@ -1660,13 +1765,19 @@ footer #Footer_bottom-container p a {
   z-index: 1000;
 }
 .contacts-admin .modal .modal-content {
-  background-color: #232627;
+  background-color: light-dark(#f5f5f5, #232627);
   padding: 2rem;
   border-radius: 8px;
   max-width: 600px;
   width: 90%;
   max-height: 80vh;
   overflow-y: auto;
+}
+@media (max-width: 600px) {
+  .contacts-admin .modal .modal-content {
+    padding: 1rem;
+    width: 95%;
+  }
 }
 .contacts-admin .modal .modal-header {
   display: flex;
@@ -1696,6 +1807,11 @@ footer #Footer_bottom-container p a {
 .contacts-admin .modal .modal-body .contact-info p {
   margin: 0.25rem 0;
 }
+@media (max-width: 600px) {
+  .contacts-admin .modal .modal-body .contact-info p {
+    word-break: break-word;
+  }
+}
 .contacts-admin .modal .modal-body .contact-message h4 {
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -1704,6 +1820,12 @@ footer #Footer_bottom-container p a {
   white-space: pre-wrap;
   padding: 1rem;
   border-radius: 4px;
+  background-color: light-dark(#f9f9f9, #34495e);
+}
+@media (max-width: 600px) {
+  .contacts-admin .modal .modal-body .contact-message p {
+    padding: 0.75rem;
+  }
 }
 .contacts-admin .modal .modal-footer {
   display: flex;

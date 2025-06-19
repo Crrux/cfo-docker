@@ -4,12 +4,14 @@ import Logo from "/assets/Header_logo.webp";
 
 import { LinksLocal } from "./links.js";
 import useWindowDimensions from "../../hooks/useWindowDimensions/useWindowDimensions.js";
+import { useAuth } from "../../context/AuthContext";
 
 function Header() {
   const location = useLocation();
   const [isTabletorAbove, setIsTabletorAbove] = useState(false);
   const { width } = useWindowDimensions();
   const [isOpen, setIsOpen] = useState(false);
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     if (width <= 1024) {
@@ -136,17 +138,21 @@ function Header() {
               onClick={handleShowLinksRedirection}
             >
               Contact
-            </Link>
-          </li>
-          {/* <li className="navbar__item">
-            <Link
-              to={"testerreur"}
-              className={`navbar__link`}
-              onClick={handleShowLinksRedirection}
-            >
-              Test erreur
-            </Link>
-          </li> */}
+            </Link>          </li>
+          {isAuthenticated() && (
+            <li className="navbar__item navbar__item--dashboard">
+              <Link
+                to={LinksLocal.dashboard}
+                className={`navbar__link ${location.pathname.startsWith("/admin") && isTabletorAbove
+                  ? "activeNavLink"
+                  : ""
+                  }`}
+                onClick={handleShowLinksRedirection}
+              >
+                <i className="fa-solid fa-gauge-high"></i> Dashboard
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
     </header>

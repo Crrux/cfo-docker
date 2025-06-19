@@ -1,15 +1,26 @@
 .contacts-admin
-    color: $color-dark
-    background-color: $background-dark
+    color: light-dark($color-light, $color-dark)
+    background-color: light-dark($background-light, $background-dark)
     width: 100%
     max-width: 100%
     overflow-x: auto
+    padding: 1rem
 
     .contacts-header
         display: flex
         justify-content: space-between
         align-items: center
         margin-bottom: 1.5rem
+        flex-wrap: wrap
+        gap: 1rem
+
+        h1
+            margin: 0
+
+        // Responsive: stacked layout on small screens
+        @media (max-width: $layout-breakpoint-small)
+            flex-direction: column
+            align-items: flex-start
 
         .back-button
             background-color: #3498db
@@ -23,6 +34,13 @@
             &:hover
                 background-color: #2980b9
 
+    // Responsive table container 
+    .contacts-table-container
+        width: 100%
+        overflow-x: auto
+        margin-bottom: 1.5rem
+        -webkit-overflow-scrolling: touch // For better scrolling on iOS
+
     .contacts-table
         width: 100%
         border-collapse: collapse
@@ -33,23 +51,68 @@
             text-align: left
             border: 1px solid #e0e0e0
 
-        th
-            background-color: #000000
-            font-weight: 600
+            // Responsive: add min-width to ensure columns are readable on small screens
+            @media (max-width: $layout-breakpoint-tablet-max)
+                min-width: 100px
+                &:first-child
+                    min-width: 130px // Date column a bit wider
 
+        th
+            background-color: light-dark(#f0f0f0, #2c3e50)
+            font-weight: 600
         tr:nth-child(even)
-            background-color: #1a1a1a
+            background-color: light-dark(#f9f9f9, #34495e)
 
         tr:hover
-            background-color: #333333
+            background-color: light-dark(#f1f1f1, #3a3a3a)
+
+        // Responsive: Card-style table on small screens
+        @media (max-width: $layout-breakpoint-small)
+            border: 0
+
+            thead
+                border: none
+                clip: rect(0 0 0 0)
+                height: 1px
+                margin: -1px
+                overflow: hidden
+                padding: 0
+                position: absolute
+                width: 1px
+
+            tr
+                border: 1px solid light-dark(#e0e0e0, #2c3e50)
+                border-radius: 4px
+                display: block
+                margin-bottom: 1rem
+                &:last-child
+                    margin-bottom: 0
+
+            td
+                border: none
+                display: block
+                font-size: 0.9em
+                text-align: left
+                position: relative
+                padding-left: 35%
+                min-width: auto !important
+
+                &::before
+                    content: attr(data-label)
+                    float: left
+                    font-weight: bold
+                    text-transform: uppercase
+                    position: absolute
+                    left: 0.75rem
+                    top: 0.75rem
 
     .contact-details
         cursor: pointer
-        color: #3498db
+        color: light-dark(#3498db, #2980b9)
         text-decoration: underline
 
         &:hover
-            color: #2980b9
+            color: light-dark(#2980b9, #3498db)
 
     .modal
         position: fixed
@@ -64,13 +127,18 @@
         z-index: 1000
 
         .modal-content
-            background-color: $background-dark
+            background-color: light-dark($background-light, $background-dark)
             padding: 2rem
             border-radius: 8px
             max-width: 600px
             width: 90%
             max-height: 80vh
             overflow-y: auto
+
+            // Responsive: adjust padding on small screens
+            @media (max-width: $layout-breakpoint-small)
+                padding: 1rem
+                width: 95%
 
         .modal-header
             display: flex
@@ -100,6 +168,10 @@
                 p
                     margin: 0.25rem 0
 
+                    // Responsive: make text wrap on small screens
+                    @media (max-width: $layout-breakpoint-small)
+                        word-break: break-word
+
             .contact-message
                 h4
                     margin-top: 0
@@ -109,6 +181,11 @@
                     white-space: pre-wrap
                     padding: 1rem
                     border-radius: 4px
+                    background-color: light-dark(#f9f9f9, #34495e)
+
+                    // Responsive: adjust padding on small screens
+                    @media (max-width: $layout-breakpoint-small)
+                        padding: 0.75rem
 
         .modal-footer
             display: flex

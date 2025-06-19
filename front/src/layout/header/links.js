@@ -6,4 +6,5 @@ export const LinksLocal = {
   contact: "/contact",
   events: "/events",
   legal_notices: "/mentions-legales",
+  dashboard: "/admin/dashboard",
 };

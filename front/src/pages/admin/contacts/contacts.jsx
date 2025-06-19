@@ -66,49 +66,49 @@ const ContactsPage = () => {
             {loading ? (
                 <div className="loading">
                     <div className="spinner"></div>
-                </div>
-            ) : (
-                <table className="contacts-table">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Nom</th>
-                            <th>Prénom</th>
-                            <th>Email</th>
-                            <th>Téléphone</th>
-                            <th>Référence</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {contacts.length === 0 ? (
+                </div>) : (
+                <div className="contacts-table-container">
+                    <table className="contacts-table">
+                        <thead>
                             <tr>
-                                <td colSpan="7" style={{ textAlign: "center" }}>
-                                    Aucun formulaire de contact trouvé
-                                </td>
+                                <th>Date</th>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Email</th>
+                                <th>Téléphone</th>
+                                <th>Référence</th>
+                                <th>Actions</th>
                             </tr>
-                        ) : (
-                            contacts.map((contact) => (
-                                <tr key={contact.id}>
-                                    <td>{formatDate(contact.createdAt)}</td>
-                                    <td>{contact.name}</td>
-                                    <td>{contact.firstname}</td>
-                                    <td>{contact.email}</td>
-                                    <td>{contact.tel}</td>
-                                    <td>{contact.reference}</td>
-                                    <td>
-                                        <span
-                                            className="contact-details"
-                                            onClick={() => handleViewDetails(contact)}
-                                        >
-                                            Voir détails
-                                        </span>
+                        </thead>
+                        <tbody>
+                            {contacts.length === 0 ? (
+                                <tr>
+                                    <td colSpan="7" style={{ textAlign: "center" }}>
+                                        Aucun formulaire de contact trouvé
                                     </td>
                                 </tr>
-                            ))
-                        )}
-                    </tbody>
-                </table>
+                            ) : (
+                                contacts.map((contact) => (
+                                    <tr key={contact.id}>
+                                        <td data-label="Date">{formatDate(contact.createdAt)}</td>
+                                        <td data-label="Nom">{contact.name}</td>
+                                        <td data-label="Prénom">{contact.firstname}</td>
+                                        <td data-label="Email">{contact.email}</td>
+                                        <td data-label="Téléphone">{contact.tel}</td>
+                                        <td data-label="Référence">{contact.reference}</td>
+                                        <td data-label="Actions">
+                                            <span
+                                                className="contact-details"
+                                                onClick={() => handleViewDetails(contact)}
+                                            >
+                                                Voir détails
+                                            </span>
+                                        </td>                                </tr>
+                                ))
+                            )}
+                        </tbody>
+                    </table>
+                </div>
             )}
 
             {selectedContact && (
