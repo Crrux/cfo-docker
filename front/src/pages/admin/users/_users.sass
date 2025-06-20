@@ -6,19 +6,17 @@
         justify-content: space-between
         align-items: center
         margin-bottom: 2rem
-
-        .back-button, .logout-button
-            padding: 0.5rem 1rem
+        .back-button
+            background-color: #3498db
+            color: white
             border: none
-            border-radius: 5px
-            // background-color: #f0f0f0
+            border-radius: 4px
+            padding: 0.5rem 1rem
             cursor: pointer
-            font-weight: bold
             transition: background-color 0.3s
 
             &:hover
-                background-color: #e0e0e0
-
+                background-color: #2980b9
     .users-container
         background-color: light-dark(#ffffff, #343a40)
         border-radius: 8px
@@ -86,7 +84,8 @@
                         background-color: #adb5bd
 
     .add-user-section, .permissions-section
-        background-color: #ffffff
+        background-color: light-dark(#ffffff, #343a40)
+        color: light-dark(#333, #f8f9fa)
         border-radius: 8px
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1)
         padding: 1.5rem
@@ -95,7 +94,7 @@
         h3
             margin-top: 0
             margin-bottom: 1.5rem
-            color: #333
+            color: light-dark(#333, #f8f9fa)
 
         .form-group
             margin-bottom: 1rem
@@ -164,7 +163,7 @@
         z-index: 1000
 
     .modal
-        background-color: white
+        background-color: light-dark(#ffffff, #343a40)
         border-radius: 8px
         padding: 1.5rem
         width: 90%
@@ -216,6 +215,6 @@
 
                 &.cancel-button
                     background-color: #f0f0f0
-
+                    color: #333
                     &:hover
                         background-color: #e0e0e0

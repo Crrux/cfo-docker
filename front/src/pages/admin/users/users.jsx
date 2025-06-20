@@ -208,10 +208,6 @@ const Users = () => {
                     <Link to="/admin/dashboard" className="back-button">
                         Retour au Dashboard
                     </Link>
-                    {" "}
-                    <button onClick={handleLogout} className="logout-button">
-                        Se déconnecter
-                    </button>
                 </div>
             </div>
 

@@ -499,18 +499,30 @@ header #Header_Logo {
 header #home_link {
   font-size: 2rem;
 }
-header .navbar__item--dashboard {
-  margin-left: 1rem;
+header .navbar__item {
+  margin: 0 0.2rem;
 }
-header .navbar__item--dashboard .navbar__link {
+header .navbar__item .navbar__link {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.3rem 0.8rem;
   border-radius: 4px;
+  background-color: rgba(52, 152, 219, 0.05);
+  color: light-dark(#000, #f5f5f5);
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+header .navbar__item .navbar__link:hover {
+  background-color: rgba(52, 152, 219, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+header .navbar__item--dashboard {
+  margin-left: 1rem;
+}
+header .navbar__item--dashboard .navbar__link {
   background-color: #3498db;
   color: white;
-  transition: background-color 0.3s, transform 0.2s;
 }
 header .navbar__item--dashboard .navbar__link:hover {
   background-color: #2980b9;
@@ -530,11 +542,13 @@ header .navbar__item--dashboard .navbar__link.activeNavLink:after {
     margin: 0.5rem 0;
     width: 100%;
   }
-  header .navbar__item--dashboard .navbar__link {
-    width: 100%;
-    justify-content: center;
-    padding: 0.5rem;
-  }
+}
+header .navbar__item--dashboard .navbar__link {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  text-align: center;
 }
 header .navbar {
   display: flex;
@@ -566,15 +580,14 @@ header .navbar__link {
   width: -moz-fit-content;
   width: fit-content;
 }
-header .navbar .activeNavLink:after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 70%;
-  height: 3px;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.1019607843) 0, #36d6e7 20%, #36d6e7 80%, rgba(255, 255, 255, 0.1019607843) 100%);
-  left: 50%;
-  transform: translateX(-50%);
+header .navbar .activeNavLink {
+  background-color: rgba(52, 152, 219, 0.2);
+  border-bottom: 3px solid #36d6e7;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+header .navbar .activeNavLink:hover {
+  transform: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 header .navbar__burger {
   width: 40px;
@@ -609,9 +622,16 @@ header .navbar a {
     transform: translateX(-50%);
   }
   header .navbar__link {
-    display: block;
-    padding: 1.3rem;
-    font-size: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    margin: 0.5rem;
+    font-size: 1.3rem;
+    background-color: rgba(52, 152, 219, 0.1);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    text-align: center;
   }
   header .navbar__burger {
     display: block;
@@ -622,16 +642,12 @@ header .navbar a {
   header .navbar__burger:hover {
     cursor: pointer;
   }
-  header .navbar__item:after {
-    content: "";
-    display: block;
-    margin: 0 auto;
-    width: 3vw;
-    height: 1px;
-    background: #fff;
-  }
-  header .navbar__item:last-child:after {
-    display: none;
+  header .navbar__item {
+    width: 90%;
+    margin: 0.3rem 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
   }
   header .navbar__links {
     flex-direction: column;
@@ -645,6 +661,11 @@ header .navbar a {
     background-color: #000;
     visibility: hidden;
     transition: all 0.5s ease-in-out;
+    text-align: center;
+  }
+  header .navbar__links a {
+    width: 100%;
+    text-align: center;
   }
   header .hide-nav {
     right: -100vw;
@@ -694,16 +715,16 @@ header .navbar a {
   }
 }
 @media screen and (min-width: 1024px) {
-  header .navbar__link:hover:not(.activeNavLink, .navbar__item--dashboard):after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 70%;
-    height: 3px;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.1019607843) 0, #36d6e7 20%, #36d6e7 80%, rgba(255, 255, 255, 0.1019607843) 100%);
-    left: 50%;
-    transform: translateX(-50%);
-    animation: width_animation 0.3s ease-in-out forwards;
+  header .navbar__item {
+    margin: 0 0.3rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  header .navbar .activeNavLink {
+    background-color: rgba(52, 152, 219, 0.3);
+    border-left: 4px solid #36d6e7;
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
   header .navbar__item:nth-child(2):hover {
     animation: upscale 0.3s ease-in-out forwards;
@@ -1918,16 +1939,17 @@ footer #Footer_bottom-container p a {
   align-items: center;
   margin-bottom: 2rem;
 }
-.admin-users .admin-header .back-button, .admin-users .admin-header .logout-button {
-  padding: 0.5rem 1rem;
+.admin-users .admin-header .back-button {
+  background-color: #3498db;
+  color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  font-weight: bold;
   transition: background-color 0.3s;
 }
-.admin-users .admin-header .back-button:hover, .admin-users .admin-header .logout-button:hover {
-  background-color: #e0e0e0;
+.admin-users .admin-header .back-button:hover {
+  background-color: #2980b9;
 }
 .admin-users .users-container {
   background-color: light-dark(#ffffff, #343a40);
@@ -2001,7 +2023,8 @@ footer #Footer_bottom-container p a {
   background-color: #adb5bd;
 }
 .admin-users .add-user-section, .admin-users .permissions-section {
-  background-color: #ffffff;
+  background-color: light-dark(#ffffff, #343a40);
+  color: light-dark(#333, #f8f9fa);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
@@ -2010,7 +2033,7 @@ footer #Footer_bottom-container p a {
 .admin-users .add-user-section h3, .admin-users .permissions-section h3 {
   margin-top: 0;
   margin-bottom: 1.5rem;
-  color: #333;
+  color: light-dark(#333, #f8f9fa);
 }
 .admin-users .add-user-section .form-group, .admin-users .permissions-section .form-group {
   margin-bottom: 1rem;
@@ -2079,7 +2102,7 @@ footer #Footer_bottom-container p a {
   z-index: 1000;
 }
 .admin-users .modal {
-  background-color: white;
+  background-color: light-dark(#ffffff, #343a40);
   border-radius: 8px;
   padding: 1.5rem;
   width: 90%;
@@ -2131,6 +2154,7 @@ footer #Footer_bottom-container p a {
 }
 .admin-users .modal .modal-actions button.cancel-button {
   background-color: #f0f0f0;
+  color: #333;
 }
 .admin-users .modal .modal-actions button.cancel-button:hover {
   background-color: #e0e0e0;
@@ -2140,7 +2164,7 @@ footer #Footer_bottom-container p a {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
+  color-scheme: light;
   color: light-dark(#000, #f5f5f5);
   background-color: light-dark(#f5f5f5, #232627);
   font-synthesis: none;

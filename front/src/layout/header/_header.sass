@@ -18,9 +18,9 @@ header
     #home_link
         font-size: 2rem
 
-    // Styles spécifiques pour le lien Dashboard
-    .navbar__item--dashboard
-        margin-left: 1rem
+    // Styles généraux pour tous les liens de navigation
+    .navbar__item
+        margin: 0 0.2rem
 
         .navbar__link
             display: flex
@@ -28,9 +28,22 @@ header
             gap: 0.5rem
             padding: 0.3rem 0.8rem
             border-radius: 4px
+            background-color: rgba(52, 152, 219, 0.05)
+            color: light-dark($color-light, $color-dark)
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s
+
+            &:hover
+                background-color: rgba(52, 152, 219, 0.2)
+                transform: translateY(-2px)
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+
+    // Styles spécifiques pour le lien Dashboard
+    .navbar__item--dashboard
+        margin-left: 1rem
+
+        .navbar__link
             background-color: #3498db
             color: white
-            transition: background-color 0.3s, transform 0.2s
 
             &:hover
                 background-color: #2980b9
@@ -50,11 +63,12 @@ header
         @media screen and (max-width: $layout-breakpoint-small)
             margin: 0.5rem 0
             width: 100%
-
-            .navbar__link
-                width: 100%
-                justify-content: center
-                padding: 0.5rem
+        .navbar__link
+            width: 100%
+            justify-content: center
+            align-items: center
+            padding: 0.5rem
+            text-align: center
 
     .navbar
         display: flex
@@ -80,15 +94,13 @@ header
             position: relative
             width: fit-content
         .activeNavLink
-            &:after
-                content: ''
-                display: block
-                position: absolute
-                width: 70%
-                height: 3px
-                background: linear-gradient(to right,#ffffff1a 0, #36d6e7 20%, #36d6e7 80%, #ffffff1a 100%)
-                left: 50%
-                transform: translateX(-50%)
+            background-color: rgba(52, 152, 219, 0.2)
+            border-bottom: 3px solid #36d6e7
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1)
+
+            &:hover
+                transform: none
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1)
 
         &__burger
             width: 40px
@@ -117,9 +129,16 @@ header
                     left: 50%
                     transform: translateX(-50%)
             &__link
-                display: block
-                padding: 1.3rem
-                font-size: 5vw
+                display: flex
+                justify-content: center
+                align-items: center
+                padding: 1rem 2rem
+                margin: 0.5rem
+                font-size: 1.3rem
+                background-color: rgba(52, 152, 219, 0.1)
+                border-radius: 6px
+                transition: all 0.3s ease
+                text-align: center
             &__burger
                 display: block
                 position: fixed
@@ -128,15 +147,11 @@ header
                 &:hover
                     cursor: pointer
             &__item
-                &:after
-                    content: ''
-                    display: block
-                    margin: 0 auto
-                    width: 3vw
-                    height: 1px
-                    background: #fff
-                &:last-child:after
-                    display: none
+                width: 90%
+                margin: 0.3rem 0
+                text-align: center
+                display: flex
+                justify-content: center
             &__links
                 flex-direction: column
                 justify-content: center
@@ -149,6 +164,11 @@ header
                 background-color: #000
                 visibility: hidden
                 transition: all 0.5s ease-in-out
+                text-align: center
+
+                a
+                    width: 100%
+                    text-align: center
         .hide-nav
             right: -100vw
         .show-nav
@@ -194,18 +214,16 @@ header
                 background: transparent
     @media screen and (min-width: 1024px)
         .navbar
-            &__link
-                &:hover:not(.activeNavLink, .navbar__item--dashboard)
-                    &:after
-                        content: ''
-                        display: block
-                        position: absolute
-                        width: 70%
-                        height: 3px
-                        background: linear-gradient(to right,#ffffff1a 0, #36d6e7 20%, #36d6e7 80%, #ffffff1a 100%)
-                        left: 50%
-                        transform: translateX(-50%)
-                        animation: width_animation 0.3s ease-in-out forwards
+            &__item
+                margin: 0 0.3rem
+
+    @media screen and (max-width: 1024px)
+        .navbar
+            .activeNavLink
+                background-color: rgba(52, 152, 219, 0.3)
+                border-left: 4px solid #36d6e7
+                transform: translateX(5px)
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2)
             &__item:nth-child(2)
                 &:hover
                     animation: upscale 0.3s ease-in-out forwards

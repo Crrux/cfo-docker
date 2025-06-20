@@ -130,7 +130,8 @@ const ContactsPage = () => {
                                             >
                                                 Voir détails
                                             </span>
-                                        </td>                                </tr>
+                                        </td>
+                                    </tr>
                                 ))
                             )}
                         </tbody>
