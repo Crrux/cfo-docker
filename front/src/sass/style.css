@@ -2164,7 +2164,7 @@ footer #Footer_bottom-container p a {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light;
+  color-scheme: light dark;
   color: light-dark(#000, #f5f5f5);
   background-color: light-dark(#f5f5f5, #232627);
   font-synthesis: none;
