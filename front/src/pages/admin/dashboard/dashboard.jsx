@@ -26,8 +26,14 @@ const Dashboard = () => {
                 type: "success",
                 text: `Nettoyage réussi : ${response.data.message}`
             });
-        } catch (error) {
-            console.error("Erreur lors du nettoyage des données :", error);
+        } catch (err) {
+            if (err.response && err.response.status === 401) {
+                localStorage.removeItem("token");
+                localStorage.removeItem("user");
+                navigate("/admin/login");
+                return;
+            }
+            console.error("Erreur lors du nettoyage des données :", err);
             setCleanupMessage({
                 type: "error",
                 text: "Erreur lors du nettoyage des données. Veuillez réessayer."

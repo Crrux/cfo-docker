@@ -38,6 +38,12 @@ const Users = () => {
             const response = await api.get("/admin/users");
             setUsers(response.data);
         } catch (err) {
+            if (err.response && err.response.status === 401) {
+                localStorage.removeItem("token");
+                localStorage.removeItem("user");
+                navigate("/admin/login");
+                return;
+            }
             console.error("Erreur lors de la récupération des utilisateurs:", err);
             setError("Impossible de charger la liste des utilisateurs");
         } finally {

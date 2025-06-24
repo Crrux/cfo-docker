@@ -27,6 +27,12 @@ const ContactsPage = () => {
             setContacts(response.data);
             setError(null);
         } catch (err) {
+            if (err.response && err.response.status === 401) {
+                localStorage.removeItem("token");
+                localStorage.removeItem("user");
+                navigate("/admin/login");
+                return;
+            }
             console.error("Erreur lors de la récupération des contacts:", err);
             setError("Impossible de charger les formulaires de contact. Veuillez réessayer plus tard.");
         } finally {
