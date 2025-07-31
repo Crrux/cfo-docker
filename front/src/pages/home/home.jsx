@@ -1,4 +1,5 @@
 import { useRef, Suspense } from 'react';
+import { FaExpand } from 'react-icons/fa';
 
 const videoBox= "/assets/video/Header.mp4";
 import LoadingSpinner from '../../components/Loading/Spinner/Spinner';
@@ -6,12 +7,6 @@ import LoadingSpinner from '../../components/Loading/Spinner/Spinner';
 import TitleBackgroundImage from "/assets/title_background/TitleBackground_Crossfit.webp";
 
 function Home() {
-  // const Slideshow_data = [
-  //   { name: "1", src: "1.jpeg", alt: "1" },
-  //   { name: "2", src: "2.jpeg", alt: "2" },
-  //   { name: "3", src: "3.jpeg", alt: "3" },
-  //   { name: "4", src: "4.jpeg", alt: "4" },
-  // ];
   const videoRef = useRef(null);
 
 
@@ -29,12 +24,28 @@ function Home() {
     }
   };
 
+  const handleFullscreen = () => {
+    if (videoRef.current) {
+      if (videoRef.current.requestFullscreen) {
+        videoRef.current.requestFullscreen();
+      } else if (videoRef.current.webkitRequestFullscreen) { // Safari
+        videoRef.current.webkitRequestFullscreen();
+      } else if (videoRef.current.msRequestFullscreen) { // IE/Edge
+        videoRef.current.msRequestFullscreen();
+      }
+    }
+  };
+
   return (
     <main className="Home">
       <section className="Slideshow_section">
         <div id="Slideshow_container">
           <Suspense fallback={<LoadingSpinner />}>
-            <video src={videoBox} style={{width: '100%'}} ref={videoRef} autoPlay={true} muted={true} onClick={handleVideoClick} controlsList="nodownload" />
+            <div className="video_container">
+              <video src={videoBox} style={{width: '100%'}} ref={videoRef} autoPlay={true} muted={true} onClick={handleVideoClick} controlsList="nodownload" loop={true} controls={true} />
+              <button onClick={handleFullscreen} className="fullscreen-button"><FaExpand /></button>
+
+            </div>
           </Suspense>
         </div>
       </section>

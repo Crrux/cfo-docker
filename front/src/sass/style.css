@@ -165,9 +165,7 @@
   color: white;
   border-radius: 2px;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 .collapsible-button::after {
   content: "";
@@ -316,9 +314,7 @@
   font-size: 45px;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   padding: 0 10px 10px 10px;
 }
 .slideshow-container .prev:hover, .slideshow-container .next:hover {
@@ -509,9 +505,7 @@ header .navbar {
   min-height: 75px;
   color: light-dark(#000, #f5f5f5);
   z-index: 200;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 header .navbar__links {
   width: 100%;
@@ -526,7 +520,6 @@ header .navbar__link {
   padding: 0 0.3rem;
   color: inherit;
   position: relative;
-  width: -moz-fit-content;
   width: fit-content;
 }
 header .navbar .activeNavLink:after {
@@ -839,6 +832,12 @@ footer #Footer_bottom-container p a {
   margin-bottom: 30px;
   padding: 0 30px;
 }
+.Home #Slideshow_container .video_container {
+  position: relative;
+  overflow: hidden;
+  width: fit-content;
+  height: fit-content;
+}
 .Home #Slideshow_container img {
   width: 100%;
 }
@@ -847,6 +846,32 @@ footer #Footer_bottom-container p a {
     width: 100%;
     padding: 0 5px;
   }
+}
+.Home #Slideshow_container .fullscreen-button {
+  position: absolute;
+  bottom: 3%;
+  right: 2%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 10;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.Home #Slideshow_container .fullscreen-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: scale(1.1);
+}
+.Home #Slideshow_container .fullscreen-button:active {
+  transform: scale(0.95);
 }
 .Home .title_container p {
   font-size: calc(15px + 2.5vw);
@@ -916,8 +941,7 @@ footer #Footer_bottom-container p a {
   width: 100%;
   display: flex;
   flex-direction: row;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
+  column-gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -996,8 +1020,7 @@ footer #Footer_bottom-container p a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  -moz-column-gap: 30px;
-       column-gap: 30px;
+  column-gap: 30px;
 }
 .main_contact .form_contact_container label {
   flex-grow: 1;
@@ -1015,7 +1038,6 @@ footer #Footer_bottom-container p a {
   justify-content: center;
   align-items: center;
   align-self: center;
-  width: -moz-fit-content;
   width: fit-content;
   gap: 10px;
   margin-bottom: 40px;
@@ -1028,23 +1050,20 @@ footer #Footer_bottom-container p a {
   justify-content: center;
   align-items: center;
   row-gap: 5px;
-  -moz-column-gap: 10px;
-       column-gap: 10px;
+  column-gap: 10px;
 }
 .main_contact .form_contact_checkbox_container > div p {
   display: inline-flex;
   gap: 8px;
   padding: 0;
   margin: 0;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   align-items: center;
   font-weight: 600;
 }
 .main_contact .form_contact_checkbox_container > div button {
   font-size: 1.2rem;
-  background-color: light-dark(#cecccc, #2f2f2f);
+  background-color: light-dark(rgb(206.0204081633, 203.9795918367, 203.9795918367), rgb(46.75, 46.75, 46.75));
   color: light-dark(#000, #ddd);
   border: none;
   border-radius: 5px;
@@ -1052,7 +1071,7 @@ footer #Footer_bottom-container p a {
   cursor: pointer;
 }
 .main_contact .form_contact_checkbox_container > div button:hover {
-  background-color: light-dark(#b5b2b2, #151515);
+  background-color: light-dark(rgb(181.0408163265, 177.9591836735, 177.9591836735), rgb(21.25, 21.25, 21.25));
 }
 .main_contact .form_contact .FormError {
   animation: ErrorBlink 0.5s forwards;
@@ -1079,7 +1098,7 @@ footer #Footer_bottom-container p a {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: light-dark(#cecccc, #2f2f2f);
+  background-color: light-dark(rgb(206.0204081633, 203.9795918367, 203.9795918367), rgb(46.75, 46.75, 46.75));
   color: light-dark(#000, #ddd);
   box-sizing: border-box;
 }
@@ -1099,12 +1118,11 @@ footer #Footer_bottom-container p a {
   color: #ddd;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: -moz-fit-content;
   width: fit-content;
   border-radius: 5px;
 }
 .main_contact input[type=submit]:hover {
-  background-color: light-dark(#1a951a, #004100);
+  background-color: light-dark(rgb(26.3274336283, 148.6725663717, 26.3274336283), #004100);
 }
 .main_contact .FormSubmitInfo {
   display: flex;
@@ -1126,7 +1144,7 @@ footer #Footer_bottom-container p a {
   text-align: center;
 }
 .main_contact .FormSubmitInfo_error p .refresh_button {
-  background-color: light-dark(#cecccc, #2f2f2f);
+  background-color: light-dark(rgb(206.0204081633, 203.9795918367, 203.9795918367), rgb(46.75, 46.75, 46.75));
   color: light-dark(#000, #ddd);
   border: none;
   border-radius: 5px;
@@ -1139,7 +1157,7 @@ footer #Footer_bottom-container p a {
   font-weight: 600;
 }
 .main_contact .FormSubmitInfo_error p .refresh_button:hover {
-  background-color: light-dark(#b5b2b2, #151515);
+  background-color: light-dark(rgb(181.0408163265, 177.9591836735, 177.9591836735), rgb(21.25, 21.25, 21.25));
 }
 .main_contact .FormSubmitInfo_error i {
   font-size: 2rem;
@@ -1434,9 +1452,7 @@ body main .main__header {
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 body main .main__header .title_container {
   position: relative;
@@ -1475,4 +1491,6 @@ body main .main__header .title_container h1 {
 }
 body footer {
   font-size: calc(15px + 0.1vw);
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
