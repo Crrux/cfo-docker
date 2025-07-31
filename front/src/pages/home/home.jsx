@@ -1,10 +1,9 @@
-import { Suspense } from 'react';
+import { useRef, Suspense } from 'react';
 
-const imgBox = "/assets/Slideshow/Box.webp";
+const videoBox= "/assets/video/Header.mp4";
 import LoadingSpinner from '../../components/Loading/Spinner/Spinner';
 
 import TitleBackgroundImage from "/assets/title_background/TitleBackground_Crossfit.webp";
-import Popup from '../../components/popup/popup';
 
 function Home() {
   // const Slideshow_data = [
@@ -13,21 +12,36 @@ function Home() {
   //   { name: "3", src: "3.jpeg", alt: "3" },
   //   { name: "4", src: "4.jpeg", alt: "4" },
   // ];
+  const videoRef = useRef(null);
+
+
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (videoRef.current.muted) {
+        videoRef.current.muted = false;
+        videoRef.current.volume = 0.2;
+        videoRef.current.play();
+      } else {
+        videoRef.current.muted = true;
+        videoRef.current.volume = 0;
+      }
+
+    }
+  };
 
   return (
     <main className="Home">
       <section className="Slideshow_section">
         <div id="Slideshow_container">
           <Suspense fallback={<LoadingSpinner />}>
-            <img src={imgBox} alt="Photo de la salle Crossfit Obernai" />
-            {/* <Slideshow data={Slideshow_data} autoplay={true} autoplayDelay={3000} /> */}
+            <video src={videoBox} style={{width: '100%'}} ref={videoRef} autoPlay={true} muted={true} onClick={handleVideoClick} controlsList="nodownload" />
           </Suspense>
         </div>
       </section>
       <section className='text__container'>
         <div className="main__header">
           <div className="title_container">
-            <img src={TitleBackgroundImage} alt="Background" />
+            <img src={TitleBackgroundImage} alt="Background"/>
             <p>Qu&apos;est ce que le</p>
             <h1>CrossFit</h1>
           </div>

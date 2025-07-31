@@ -1,7 +1,27 @@
-import Popup from "../../components/popup/popup";
+import { useRef, Suspense } from 'react';
+
 import TitleBackgroundImage from "/assets/title_background/TitleBackground_Evenements.webp";
+import LoadingSpinner from "../../components/Loading/Spinner/Spinner.jsx";
+const videoEvenement= "/assets/video/Evenements.mp4";
 
 function Events() {
+  const videoRef = useRef(null);
+
+
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (videoRef.current.muted) {
+        videoRef.current.muted = false;
+        videoRef.current.volume = 0.2;
+        videoRef.current.play();
+      } else {
+        videoRef.current.muted = true;
+        videoRef.current.volume = 0;
+      }
+
+    }
+  };
+
   return (
     <main className="event_main">
       <div className="main__header">
@@ -11,7 +31,9 @@ function Events() {
           <h1>Les événements</h1>
         </div>
       </div>
-
+      <Suspense fallback={<LoadingSpinner />}>
+        <video src={videoEvenement} style={{width: '100%'}} ref={videoRef} autoPlay={true} muted={true} onClick={handleVideoClick} controlsList="nodownload" />
+      </Suspense>
       <p>
         Toute l&apos;année, nos événements viennent dynamiser la vie de la box.
         À quoi vous attendre ?
