@@ -44,7 +44,6 @@ function Home() {
             <div className="video_container">
               <video src={videoBox} style={{width: '100%'}} ref={videoRef} autoPlay={true} muted={true} onClick={handleVideoClick} controlsList="nodownload" loop={true} controls={true} />
               <button onClick={handleFullscreen} className="fullscreen-button"><FaExpand /></button>
-
             </div>
           </Suspense>
         </div>
