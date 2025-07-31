@@ -21,10 +21,10 @@ export default defineConfig({
     allowedHosts: ['front'],
     watch: { usePolling: true },
     hmr: {
-      host: 'localhost',
+      host: '127.0.0.1',
       port: 5174,
       protocol: 'ws',
-      clientPort: 80
+      clientPort: 5174
     }
   },
   preview: {
