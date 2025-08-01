@@ -831,14 +831,11 @@ footer #Footer_bottom-container p a {
   justify-content: center;
   aspect-ratio: 16/9;
   width: 70%;
-  margin-bottom: 30px;
-  padding: 0 30px;
 }
 .Home #Slideshow_container .video_container {
   position: relative;
   overflow: hidden;
   width: 80%;
-  height: 80%;
 }
 @media screen and (max-width: 767.98px) {
   .Home #Slideshow_container .video_container {
@@ -861,9 +858,13 @@ footer #Footer_bottom-container p a {
   align-items: center;
   justify-content: center;
   padding: 30px 30px;
+  margin-bottom: 30px;
 }
 .Home .quote_container h3 {
   text-align: center;
+}
+.Home .quote_container p {
+  align-self: flex-start;
 }
 .Home .quote_container .bold {
   font-weight: bold;
