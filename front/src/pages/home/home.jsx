@@ -1,40 +1,42 @@
-import { useRef, Suspense } from 'react';
-import { FaExpand } from 'react-icons/fa';
+// import { useRef, Suspense } from 'react';
+import { Suspense } from 'react';
 
-const videoBox= "/assets/video/Header.mp4";
+// import { FaExpand } from 'react-icons/fa';
+//
+// const videoBox= "/assets/video/Header.mp4";
 import LoadingSpinner from '../../components/Loading/Spinner/Spinner';
 
 import TitleBackgroundImage from "/assets/title_background/TitleBackground_Crossfit.webp";
 
 function Home() {
-  const videoRef = useRef(null);
+  // const videoRef = useRef(null);
 
 
-  const handleVideoClick = () => {
-    if (videoRef.current) {
-      if (videoRef.current.muted) {
-        videoRef.current.muted = false;
-        videoRef.current.volume = 0.2;
-        videoRef.current.play();
-      } else {
-        videoRef.current.muted = true;
-        videoRef.current.volume = 0;
-      }
-
-    }
-  };
-
-  const handleFullscreen = () => {
-    if (videoRef.current) {
-      if (videoRef.current.requestFullscreen) {
-        videoRef.current.requestFullscreen();
-      } else if (videoRef.current.webkitRequestFullscreen) { // Safari
-        videoRef.current.webkitRequestFullscreen();
-      } else if (videoRef.current.msRequestFullscreen) { // IE/Edge
-        videoRef.current.msRequestFullscreen();
-      }
-    }
-  };
+  // const handleVideoClick = () => {
+  //   if (videoRef.current) {
+  //     if (videoRef.current.muted) {
+  //       videoRef.current.muted = false;
+  //       videoRef.current.volume = 0.2;
+  //       videoRef.current.play();
+  //     } else {
+  //       videoRef.current.muted = true;
+  //       videoRef.current.volume = 0;
+  //     }
+  //
+  //   }
+  // };
+  //
+  // const handleFullscreen = () => {
+  //   if (videoRef.current) {
+  //     if (videoRef.current.requestFullscreen) {
+  //       videoRef.current.requestFullscreen();
+  //     } else if (videoRef.current.webkitRequestFullscreen) { // Safari
+  //       videoRef.current.webkitRequestFullscreen();
+  //     } else if (videoRef.current.msRequestFullscreen) { // IE/Edge
+  //       videoRef.current.msRequestFullscreen();
+  //     }
+  //   }
+  // };
 
   return (
     <main className="Home">
@@ -42,11 +44,23 @@ function Home() {
         <div id="Slideshow_container">
           <Suspense fallback={<LoadingSpinner />}>
             <div className="video_container">
-              <video src={videoBox} style={{width: '100%'}} ref={videoRef} autoPlay={true} muted={true} onClick={handleVideoClick} controlsList="nodownload" loop={true} controls={true} />
-              <button onClick={handleFullscreen} className="fullscreen-button"><FaExpand /></button>
+              <iframe width="100%" height="100%"
+                      src="https://www.youtube.com/embed/VWaBOMIcbpQ?autoplay=1&loop=1&mute=1&controls=1&playlist=VWaBOMIcbpQ"
+                      title="Video CrossfitObernai" frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen></iframe>
             </div>
           </Suspense>
         </div>
+      </section>
+      <section className="quote_container">
+        <h2>Votre santé en mouvement </h2>
+        <h3>CrossFit Obernai transforme votre quotidien, à l&apos;intérieur comme à l&apos;extérieur de la salle.</h3>
+        <p>Depuis 2021, nous accompagnons des personnes de tous âges et de tous niveaux dans l’amélioration de leur forme physique, de leur bien-être et de leur confiance en soi</p>
+        <p>Située au <span className={"bold"}>4 rue du Thal, à Obernai</span>,  notre box vous accueille dans un espace dédié à la <span className={"bold"}>progression</span>, à l’épanouissement et à la convivialité.</p>
+        <p>Notre mission : vous offrir le meilleur de l&apos;entraînement fonctionnel grâce à une <span className={"bold"}>programmation variée et exigeante</span>, encadrée par des coachs expérimentés et passionnés.</p>
+        <p>Nous proposons des <span className={"bold"}>cours de CrossFit, Hyrox, Pilates, gymnastique, haltérophilie, HIIT et strongman</span>, le tout dans un environnement motivant et bienveillant.</p>
       </section>
       <section className='text__container'>
         <div className="main__header">
