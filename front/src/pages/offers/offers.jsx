@@ -1,10 +1,11 @@
 import TitleBackgroundImage from "/assets/title_background/TitleBackground_Offres.webp";
 import LogoPeppy from "/assets/logos_svg/logo_peppy.svg";
-import Popup from "../../components/popup/popup";
 import {Link} from "react-router-dom";
 
 function Offers() {
-  return (
+    const handleRedirectionDisplay = () => window.scrollTo(0, 0);
+
+    return (
     <main className="offers">
       <div className="main__header">
         <div className="title_container">
@@ -34,7 +35,7 @@ function Offers() {
         <div className={"offers_links"}>
             <div className={"offers_bilan_container"}>
                 <h2 className={"offers_bilan_title"}>Réserve ton bilan sport & santé gratuitement avec un pro : </h2>
-                <Link to={"/contact"}>Contactez nous !</Link>
+                <Link to={"/contact"} onClick={handleRedirectionDisplay}>Contactez nous !</Link>
             </div>
             <div className="offers_dropin_container">
                 <h2 className="offers_dropin_title">Reserve ton Drop-in ici: </h2>
