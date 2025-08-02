@@ -1,26 +1,27 @@
-import { useRef, Suspense } from 'react';
+// import { useRef, Suspense } from 'react';
+import { Suspense } from "react";
 
 import TitleBackgroundImage from "/assets/title_background/TitleBackground_Evenements.webp";
 import LoadingSpinner from "../../components/Loading/Spinner/Spinner.jsx";
-const videoEvenement= "/assets/video/Evenements.mp4";
+// const videoEvenement= "/assets/video/Evenements.mp4";
 
 function Events() {
-  const videoRef = useRef(null);
+  // const videoRef = useRef(null);
 
 
-  const handleVideoClick = () => {
-    if (videoRef.current) {
-      if (videoRef.current.muted) {
-        videoRef.current.muted = false;
-        videoRef.current.volume = 0.2;
-        videoRef.current.play();
-      } else {
-        videoRef.current.muted = true;
-        videoRef.current.volume = 0;
-      }
-
-    }
-  };
+  // const handleVideoClick = () => {
+  //   if (videoRef.current) {
+  //     if (videoRef.current.muted) {
+  //       videoRef.current.muted = false;
+  //       videoRef.current.volume = 0.2;
+  //       videoRef.current.play();
+  //     } else {
+  //       videoRef.current.muted = true;
+  //       videoRef.current.volume = 0;
+  //     }
+  //
+  //   }
+  // };
 
   return (
       <main className="event_main">
@@ -33,7 +34,7 @@ function Events() {
         </div>
         <div className={"video_container"}>
           <Suspense fallback={<LoadingSpinner/>}>
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/JsHHZFt23Mo?autoplay=1&loop=1&mute=1&controls=1&playlist=JsHHZFt23Mo"
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/JsHHZFt23Mo?autoplay=1&loop=1&mute=1&controls=1&playlist=JsHHZFt23Mo&playsinline=1&modestbranding=1"
                     title="Crossfit Obernai Evenement" frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
