@@ -61,7 +61,10 @@
   }
 }
 .PopupTel {
+  display: flex;
+  justify-content: center;
   top: 10px;
+  margin-top: 5px;
 }
 .PopupTel > div {
   color: black;
@@ -69,15 +72,17 @@
   justify-content: flex-end;
   padding: 10px;
   border-radius: 5px;
+  background: rgba(30, 30, 30, 0.1);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.18), 0 1.5px 6px 0 rgba(0, 0, 0, 0.12);
 }
 .PopupTel div {
   display: flex;
-  justify-content: space-between;
   flex-wrap: nowrap;
   width: 100%;
   gap: 15px;
   justify-content: center;
   align-items: center;
+  max-width: 600px;
 }
 .PopupTel div a {
   text-decoration: none;
@@ -830,12 +835,17 @@ footer #Footer_bottom-container p a {
   display: flex;
   justify-content: center;
   aspect-ratio: 16/9;
-  width: 70%;
+  width: 90%;
 }
 .Home #Slideshow_container .video_container {
   position: relative;
   overflow: hidden;
   width: 80%;
+}
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .Home #Slideshow_container .video_container {
+    width: 90%;
+  }
 }
 @media screen and (max-width: 767.98px) {
   .Home #Slideshow_container .video_container {
@@ -1283,6 +1293,11 @@ footer #Footer_bottom-container p a {
   aspect-ratio: 16/9;
   width: 70%;
   margin-inline: auto;
+}
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .event_main .video_container {
+    width: 90%;
+  }
 }
 @media screen and (max-width: 600px) {
   .event_main .video_container {

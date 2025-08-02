@@ -16,11 +16,13 @@
         display: flex
         justify-content: center
         aspect-ratio: 16/9
-        width: 70%
+        width: 90%
         .video_container
             position: relative
             overflow: hidden
             width: 80%
+            @media screen and (max-width: $layout-breakpoint-tablet-max) and (min-width: $layout-breakpoint-tablet-min)
+                width: 90%
             @media screen and (max-width: $layout-breakpoint-small)
                 width: 100%
                 height: 100%
