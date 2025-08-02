@@ -35,7 +35,7 @@ function Offers() {
         <div className={"offers_links"}>
             <div className={"offers_bilan_container"}>
                 <h2 className={"offers_bilan_title"}>Réserve ton bilan sport & santé gratuitement avec un pro : </h2>
-                <Link to={"/contact"} onClick={handleRedirectionDisplay}>Contactez nous !</Link>
+                <Link to={"/contact"} onClick={handleRedirectionDisplay}>Réserve ton bilan !</Link>
             </div>
             <div className="offers_dropin_container">
                 <h2 className="offers_dropin_title">Reserve ton Drop-in ici: </h2>

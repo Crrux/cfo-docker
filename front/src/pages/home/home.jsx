@@ -1,43 +1,10 @@
-// import { useRef, Suspense } from 'react';
 import { Suspense } from 'react';
 
-// import { FaExpand } from 'react-icons/fa';
-//
-// const videoBox= "/assets/video/Header.mp4";
 import LoadingSpinner from '../../components/Loading/Spinner/Spinner';
 
 import TitleBackgroundImage from "/assets/title_background/TitleBackground_Crossfit.webp";
 
 function Home() {
-  // const videoRef = useRef(null);
-
-
-  // const handleVideoClick = () => {
-  //   if (videoRef.current) {
-  //     if (videoRef.current.muted) {
-  //       videoRef.current.muted = false;
-  //       videoRef.current.volume = 0.2;
-  //       videoRef.current.play();
-  //     } else {
-  //       videoRef.current.muted = true;
-  //       videoRef.current.volume = 0;
-  //     }
-  //
-  //   }
-  // };
-  //
-  // const handleFullscreen = () => {
-  //   if (videoRef.current) {
-  //     if (videoRef.current.requestFullscreen) {
-  //       videoRef.current.requestFullscreen();
-  //     } else if (videoRef.current.webkitRequestFullscreen) { // Safari
-  //       videoRef.current.webkitRequestFullscreen();
-  //     } else if (videoRef.current.msRequestFullscreen) { // IE/Edge
-  //       videoRef.current.msRequestFullscreen();
-  //     }
-  //   }
-  // };
-
   return (
     <main className="Home">
       <section className="Slideshow_section">
@@ -56,7 +23,7 @@ function Home() {
         </div>
       </section>
       <section className="quote_container">
-        <h2>Votre santé en mouvement </h2>
+        <h2>Votre santé en mouvement</h2>
         <h3>CrossFit Obernai transforme votre quotidien, à l&apos;intérieur comme à l&apos;extérieur de la salle.</h3>
         <p>Depuis 2021, nous accompagnons des personnes de tous âges et de tous niveaux dans l’amélioration de leur forme physique, de leur bien-être et de leur confiance en soi</p>
         <p>Située au <span className={"bold"}>4 rue du Thal, à Obernai</span>,  notre box vous accueille dans un espace dédié à la <span className={"bold"}>progression</span>, à l’épanouissement et à la convivialité.</p>
