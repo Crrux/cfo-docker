@@ -240,6 +240,7 @@
 }
 .collapsible .collapsible-content p {
   padding: 0 20px 0 20px;
+  text-align: justify;
 }
 .collapsible .collapsible-content.active {
   max-height: 500px;
@@ -822,6 +823,9 @@ footer #Footer_bottom-container p a {
   justify-content: center;
   align-items: flex-start;
 }
+.Home .text__container p {
+  text-align: justify;
+}
 .Home .text__container h2, .Home .text__container ul {
   align-self: center;
 }
@@ -881,6 +885,7 @@ footer #Footer_bottom-container p a {
 }
 .Home .quote_container p {
   align-self: flex-start;
+  text-align: justify;
 }
 .Home .quote_container .bold {
   font-weight: bold;
@@ -1378,6 +1383,9 @@ footer #Footer_bottom-container p a {
   justify-content: center;
   margin-top: 30px;
 }
+.offers_text_container p {
+  text-align: justify;
+}
 .offers_links {
   display: flex;
   flex-direction: row;
@@ -1506,6 +1514,7 @@ footer #Footer_bottom-container p a {
 }
 .legal_notices p, .legal_notices ul {
   margin-left: 30px;
+  text-align: justify;
 }
 @media screen and (max-width: 768px) {
   .legal_notices p, .legal_notices ul {
