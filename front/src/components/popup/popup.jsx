@@ -10,13 +10,13 @@ import { motion } from "framer-motion";
 function Popup() {
   const [isOpen, setIsOpen] = useState(true);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
-  const [isTabletorAbove, setIsTabletorAbove] = useState();
+  const [isTabletorAbove, setIsTabletorAbove] = useState(false);
 
   const location = useLocation();
 
   // Ajouter cet useEffect pour reset le popup
   useEffect(() => {
-    if (location.pathname != "/contact") {
+    if (location.pathname !== "/contact") {
       setIsOpen(true);
       setIsButtonClicked(false);
     }
