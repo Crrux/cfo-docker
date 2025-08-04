@@ -14,14 +14,17 @@ services:
     environment:
       - NODE_ENV=production
     restart: unless-stopped
-    depends_on:
-      - db
+
 
   nginx:
     container_name: cfo-nginx
     build:
       context: ./nginx
       dockerfile: Dockerfile.production
+    volumes:
+      - type: bind
+        source: /etc/letsencrypt
+        target: /etc/letsencrypt
     ports:
       - "80:80"
       - "443:443"
@@ -29,22 +32,6 @@ services:
       - front
       - back
     restart: unless-stopped
-      
-  db:
-    container_name: cfo-db-prod
-    image: postgres:latest
-    restart: unless-stopped
-    volumes:
-      - type: volume
-        source: db-prod-cfo
-        target: /var/lib/postgresql/data
-      - type: bind
-        source: ./db/init
-        target: /docker-entrypoint-initdb.d
-
-volumes:
-  db-prod-cfo:
-    external: true
 
 networks:
   default:
