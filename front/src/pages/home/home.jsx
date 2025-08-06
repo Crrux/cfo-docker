@@ -27,8 +27,8 @@ function Home() {
         <h3>CrossFit Obernai transforme votre quotidien, à l&apos;intérieur comme à l&apos;extérieur de la salle.</h3>
         <p>Depuis 2021, nous accompagnons des personnes de tous âges et de tous niveaux dans l’amélioration de leur forme physique, de leur bien-être et de leur confiance en soi</p>
         <p>Située au <span className={"bold"}>4 rue du Thal, à Obernai</span>,  notre box vous accueille dans un espace dédié à la <span className={"bold"}>progression</span>, à l’épanouissement et à la convivialité.</p>
-        <p>Notre mission : vous offrir le meilleur de l&apos;entraînement fonctionnel grâce à une <span className={"bold"}>programmation variée et exigeante</span>, encadrée par des coachs expérimentés et passionnés.</p>
-        <p>Nous proposons des <span className={"bold"}>cours de CrossFit, Hyrox, Pilates, gymnastique, haltérophilie, HIIT et strongman</span>, le tout dans un environnement motivant et bienveillant.</p>
+        <p>Notre mission : vous offrir le meilleur de l&apos;entraînement fonctionnel grâce à une <span className={"bold"}>programmation variée et stimulante</span>, encadrée par des coachs expérimentés et passionnés.</p>
+        <p>Nous proposons des <span className={"bold"}>cours de CrossFit, Hyrox, Pilates, gymnastique, haltérophilie, functional bodybuilding, HIIT et strongman</span>, le tout dans un environnement motivant et bienveillant.</p>
       </section>
       <section className='text__container'>
         <div className="main__header">

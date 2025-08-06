@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 
+import EventImg from "/assets/events/Event.png";
 import TitleBackgroundImage from "/assets/title_background/TitleBackground_Evenements.webp";
 import LoadingSpinner from "../../components/Loading/Spinner/Spinner.jsx";
 
@@ -50,11 +51,16 @@ function Events() {
               fun avec vos meilleurs teammates de la box !
             </li>
             <li>
-              Des weekends sportifs à la box ou ailleurs, des randonnées, marchés de
+              Des weekends sportifs à la box ou ailleurs, des training camps, des randonnées, marchés de
               noël et bien d&apos;autres choses organisées par nos équipes !
             </li>
           </ul>
         </div>
+          <Suspense>
+              <div className="event_img_container">
+                  <img src={EventImg} alt="Events"/>
+              </div>
+          </Suspense>
       </main>
   );
 }
