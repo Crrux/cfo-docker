@@ -1323,6 +1323,16 @@ footer #Footer_bottom-container p a {
     padding: 0 15px;
   }
 }
+.event_main .event_img_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.event_main .event_img_container img {
+  width: 90%;
+  height: 100%;
+}
 
 .Planning .title_container p {
   top: 20%;
