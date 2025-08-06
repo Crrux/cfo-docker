@@ -1331,7 +1331,11 @@ footer #Footer_bottom-container p a {
 }
 .event_main .event_img_container img {
   width: 90%;
-  height: 100%;
+}
+@media screen and (max-width: 600px) {
+  .event_main .event_img_container img {
+    width: 100%;
+  }
 }
 
 .Planning .title_container p {
