@@ -28,10 +28,10 @@ export default defineConfig({
     }
   },
   preview: {
-    port: 5174,
-    host: true,
+      host: true,
+      port: 5174,
     strictPort: true,
-    allowedHosts: ['front']
+    allowedHosts: ['crossfitobernai.com', 'www.crossfitobernai.com'],
   },
   build: {
     outDir: 'dist',

@@ -13,6 +13,12 @@ services:
       dockerfile: Dockerfile.production
     environment:
       - NODE_ENV=production
+      - MAILER_USERNAME=noreply@crossfitobernai.com
+      - MAILER_USERNAME_NAME=Formulaire
+      - MAILER_SUBJECT=crossfitobernai@gmail.com
+      - ALLOWED_ORIGINS="https://crossfitobernai.com,https://www.crossfitobernai.com,https://crossfitobernai.com:8080"
+      - MAILER_PASSWORD
+      - MAILER_HOSTNAME
     restart: unless-stopped
 
 
