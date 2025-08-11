@@ -12,6 +12,11 @@ services:
         target: /app
       - type: volume
         target: /app/node_modules
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   back:
     container_name: cfo-backend
@@ -28,8 +33,8 @@ services:
         target: /app
       - type: volume
         target: /app/node_modules
-    depends_on:
-      - db
+#    depends_on:
+#      - db
   
   nginx:
     container_name: cfo-nginx
@@ -44,20 +49,20 @@ services:
       - front
       - back
       
-  db:
-    container_name: cfo-db
-    image: postgres:latest
-    ports:
-      - "5432:5432"
-    volumes:
-      - type: volume
-        source: db-dev-cfo
-        target: /var/lib/postgresql/data
-      - type: bind
-        source: ./db/init
-        target: /docker-entrypoint-initdb.d
-    env_file:
-      - db/.env.dev
+#  db:
+#    container_name: cfo-db
+#    image: postgres:latest
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - type: volume
+#        source: db-dev-cfo
+#        target: /var/lib/postgresql/data
+#      - type: bind
+#        source: ./db/init
+#        target: /docker-entrypoint-initdb.d
+#    env_file:
+#      - db/.env.dev
 
 volumes:
   db-dev-cfo:

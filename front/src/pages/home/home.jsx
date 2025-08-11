@@ -11,13 +11,16 @@ function Home() {
         <div id="Slideshow_container">
           <Suspense fallback={<LoadingSpinner />}>
             <div className="video_container">
-              <iframe width="100%" height="100%"
-                      src="https://www.youtube.com/embed/VWaBOMIcbpQ?autoplay=1&loop=1&mute=1&controls=1&playlist=VWaBOMIcbpQ&playsinline=1&modestbranding=1"
-                      title="Video CrossfitObernai" frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-              ></iframe>
+                <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/VWaBOMIcbpQ?autoplay=1&loop=1&mute=1&controls=1&playlist=VWaBOMIcbpQ&playsinline=1&modestbranding=1"
+                    title="Video CrossfitObernai"
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                ></iframe>
             </div>
           </Suspense>
         </div>
