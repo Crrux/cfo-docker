@@ -12,11 +12,6 @@ services:
         target: /app
       - type: volume
         target: /app/node_modules
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
 
   back:
     container_name: cfo-backend

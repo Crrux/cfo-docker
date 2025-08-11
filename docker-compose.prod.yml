@@ -5,6 +5,11 @@ services:
       context: ./front
       dockerfile: Dockerfile.production
     restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
 
   back:
     container_name: cfo-backend
@@ -20,7 +25,11 @@ services:
       - MAILER_PASSWORD
       - MAILER_HOSTNAME
     restart: unless-stopped
-
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
 
   nginx:
     container_name: cfo-nginx
@@ -38,6 +47,11 @@ services:
       - front
       - back
     restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
 networks:
   default:
