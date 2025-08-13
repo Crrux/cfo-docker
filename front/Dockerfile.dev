@@ -5,5 +5,7 @@ RUN npm install
 COPY . .
 EXPOSE 5174
 
+RUN apk add --no-cache curl
+
 RUN npm run build
 CMD ["npm", "run", "dev", "--", "--host"]
