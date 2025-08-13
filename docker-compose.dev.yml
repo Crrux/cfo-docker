@@ -1,48 +1,48 @@
 services:
-  front:
-    container_name: cfo-frontend
-    build:
-      context: ./front
-      dockerfile: Dockerfile.dev
-    ports:
-      - "5174:5174"
-    volumes:
-      - type: bind
-        source: ./front
-        target: /app
-      - type: volume
-        target: /app/node_modules
+    front:
+        container_name: cfo-frontend
+        build:
+            context: ./front
+            dockerfile: Dockerfile.dev
+        ports:
+        - "5174:5174"
+        volumes:
+            - type: bind
+              source: ./front
+              target: /app
+            - type: volume
+              target: /app/node_modules
 
-  back:
-    container_name: cfo-backend
-    build:
-      context: ./back
-      dockerfile: Dockerfile.dev
-    ports:
-      - "3000:3000"
-    env_file:
-    - back/.env.dev
-    volumes:
-      - type: bind
-        source: ./back
-        target: /app
-      - type: volume
-        target: /app/node_modules
+    back:
+        container_name: cfo-backend
+        build:
+          context: ./back
+          dockerfile: Dockerfile.dev
+        ports:
+          - "3000:3000"
+        env_file:
+        - back/.env.dev
+        volumes:
+          - type: bind
+            source: ./back
+            target: /app
+          - type: volume
+            target: /app/node_modules
 #    depends_on:
 #      - db
   
-  nginx:
-    container_name: cfo-nginx
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile.dev
-    ports:
-      - "80:80"
-      - "8080:8080"
-      - "443:443" 
-    depends_on:
-      - front
-      - back
+    nginx:
+        container_name: cfo-nginx
+        build:
+          context: ./nginx
+          dockerfile: Dockerfile.dev
+        ports:
+          - "80:80"
+          - "8080:8080"
+          - "443:443"
+        depends_on:
+          - front
+          - back
       
 #  db:
 #    container_name: cfo-db
@@ -60,10 +60,10 @@ services:
 #      - db/.env.dev
 
 volumes:
-  db-dev-cfo:
-    external: true
+    db-dev-cfo:
+        external: true
 
 networks:
-  default:
-    driver: bridge
-    name: dev_network_cfo
+    default:
+        driver: bridge
+        name: dev_network_cfo
