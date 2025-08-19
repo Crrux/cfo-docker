@@ -29,3 +29,4 @@ save
 *.sw?
 
 nginx.conf
+/public/assets/video/

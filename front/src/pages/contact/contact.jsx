@@ -241,7 +241,7 @@ function Contact() {
       } else {
         setFormError(true);
       }
-    } catch (error) {
+    } catch {
       setIsFormSent(false);
       setFormError(true);
     } finally {
