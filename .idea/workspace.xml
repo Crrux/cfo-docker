@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="126d76ad-9704-4d5a-a1e3-c048f179cb84" name="Changes" comment="update docker-compose configuration; add nginx volume for SSL certificates and remove unused db service" />
+    <list default="true" id="126d76ad-9704-4d5a-a1e3-c048f179cb84" name="Changes" comment="refactor: clean up imports, enhance Dockerfile, and improve UI components">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/Collapsible/_Collapsible.sass" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/Collapsible/_Collapsible.sass" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +58,7 @@
   </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Crrux/cfo---fullstack.git&quot;,
+    &quot;url&quot;: &quot;git@github.com:Crrux/cfo-docker.git&quot;,
     &quot;accountId&quot;: &quot;f6660a72-61af-4b81-a48b-9fc581345763&quot;
   }
 }</component>
@@ -63,11 +66,6 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
-  <component name="NamedScopeManager">
-    <scope name="front" pattern="file[cfo - fullstack]:front/*&amp;&amp;!file[cfo - fullstack]:.idea/*&amp;&amp;!file[cfo - fullstack]:.vscode/*&amp;&amp;!file[cfo - fullstack]:back/*&amp;&amp;!file:.gitignore&amp;&amp;!file:README.md||file:docker-compose.dev.front.yml||file:docker-compose.dev.yml||file[cfo - fullstack]:nginx/*||file[cfo - fullstack]:nginx//*||file[cfo - fullstack]:front//*" />
-    <scope name="back" pattern="file[cfo - fullstack]:back//*||file[cfo - fullstack]:nginx//*||file:docker-compose.prod.yml||file:docker-compose.dev.front.yml||file:docker-compose.dev.yml" />
-    <scope name="all" pattern="file[cfo - fullstack]:back/*||file[cfo - fullstack]:front/*||file[cfo - fullstack]:nginx/*||file:docker-compose.dev.front.yml||file:docker-compose.dev.yml||file:docker-compose.prod.yml||file:README.md||file[cfo - fullstack]:back//*||file[cfo - fullstack]:front//*||file[cfo - fullstack]:nginx//*" />
-  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -81,28 +79,28 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Code/cfo - fullstack&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.Back.executor&quot;: &quot;Run&quot;,
-    &quot;npm.Front.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\Code\\cfo - fullstack\\back\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.mcp.McpConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Code\\cfo - fullstack\\back\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/arthu/Documents/Code/cfo-docker",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.Back.executor": "Run",
+    "npm.Front.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "D:\\Code\\cfo - fullstack\\back\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "watcher.settings",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.1.4.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -175,6 +173,9 @@
       <workItem from="1754313357363" duration="1048000" />
       <workItem from="1754314482376" duration="8651000" />
       <workItem from="1754326495565" duration="128000" />
+      <workItem from="1755773556377" duration="48000" />
+      <workItem from="1755773615759" duration="11000" />
+      <workItem from="1755773628423" duration="286000" />
     </task>
     <task id="LOCAL-00001" summary="remove TypeORM and database-related code from contact module and service">
       <option name="closed" value="true" />
@@ -312,8 +313,19 @@
       <option name="project" value="LOCAL" />
       <updated>1754322801674</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="refactor: clean up imports, enhance Dockerfile, and improve UI components">
+      <option name="closed" value="true" />
+      <created>1755773440498</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1755773440498</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
+  </component>
+  <component name="TerminalProjectNonSharedOptionsProvider">
+    <option name="startingDirectory" value="C:\Users\arthu\Documents\Code\cfo-docker\" />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
@@ -360,7 +372,8 @@
     <MESSAGE value="refactor home and events components; improve layout and remove unused code" />
     <MESSAGE value="update text alignment in various components for improved readability (justify all p)" />
     <MESSAGE value="update docker-compose configuration; add nginx volume for SSL certificates and remove unused db service" />
-    <option name="LAST_COMMIT_MESSAGE" value="update docker-compose configuration; add nginx volume for SSL certificates and remove unused db service" />
+    <MESSAGE value="refactor: clean up imports, enhance Dockerfile, and improve UI components" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: clean up imports, enhance Dockerfile, and improve UI components" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
