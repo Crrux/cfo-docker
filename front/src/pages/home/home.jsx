@@ -1,33 +1,42 @@
 import { Suspense } from 'react';
 
-const imgBox = "/assets/Slideshow/Box.webp";
 import LoadingSpinner from '../../components/Loading/Spinner/Spinner';
 
 import TitleBackgroundImage from "/assets/title_background/TitleBackground_Crossfit.webp";
-import Popup from '../../components/popup/popup';
 
 function Home() {
-  // const Slideshow_data = [
-  //   { name: "1", src: "1.jpeg", alt: "1" },
-  //   { name: "2", src: "2.jpeg", alt: "2" },
-  //   { name: "3", src: "3.jpeg", alt: "3" },
-  //   { name: "4", src: "4.jpeg", alt: "4" },
-  // ];
-
   return (
     <main className="Home">
       <section className="Slideshow_section">
         <div id="Slideshow_container">
           <Suspense fallback={<LoadingSpinner />}>
-            <img src={imgBox} alt="Photo de la salle Crossfit Obernai" />
-            {/* <Slideshow data={Slideshow_data} autoplay={true} autoplayDelay={3000} /> */}
+            <div className="video_container">
+                <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/VWaBOMIcbpQ?autoplay=1&loop=1&mute=1&controls=1&playlist=VWaBOMIcbpQ&playsinline=1&modestbranding=1"
+                    title="Video CrossfitObernai"
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                ></iframe>
+            </div>
           </Suspense>
         </div>
+      </section>
+      <section className="quote_container">
+        <h2>Votre santé en mouvement</h2>
+        <h3>CrossFit Obernai transforme votre quotidien, à l&apos;intérieur comme à l&apos;extérieur de la salle.</h3>
+        <p>Depuis 2021, nous accompagnons des personnes de tous âges et de tous niveaux dans l’amélioration de leur forme physique, de leur bien-être et de leur confiance en soi</p>
+        <p>Située au <span className={"bold"}>4 rue du Thal, à Obernai</span>,  notre box vous accueille dans un espace dédié à la <span className={"bold"}>progression</span>, à l’épanouissement et à la convivialité.</p>
+        <p>Notre mission : vous offrir le meilleur de l&apos;entraînement fonctionnel grâce à une <span className={"bold"}>programmation variée et stimulante</span>, encadrée par des coachs expérimentés et passionnés.</p>
+        <p>Nous proposons des <span className={"bold"}>cours de CrossFit, Hyrox, Pilates, gymnastique, haltérophilie, functional bodybuilding, HIIT et strongman</span>, le tout dans un environnement motivant et bienveillant.</p>
       </section>
       <section className='text__container'>
         <div className="main__header">
           <div className="title_container">
-            <img src={TitleBackgroundImage} alt="Background" />
+            <img src={TitleBackgroundImage} alt="Background"/>
             <p>Qu&apos;est ce que le</p>
             <h1>CrossFit</h1>
           </div>

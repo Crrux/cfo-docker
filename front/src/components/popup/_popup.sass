@@ -13,7 +13,7 @@
     padding-bottom: 1rem
     border-radius: 10px 10px 0 0
     animation: PopupOpenPC 1s ease-in-out forwards
-    z-index: 100
+    z-index: 300
     @media screen and (max-width: $layout-breakpoint-tablet-max)
 
     div
@@ -55,21 +55,26 @@
         transform: translateY(100%)
 
 .PopupTel
+    display: flex
+    justify-content: center
     top: 10px
+    margin-top: 5px
     >div
         color: black
         display: flex
         justify-content: flex-end
         padding: 10px
         border-radius: 5px
+        background: rgba(30, 30, 30, 0.1)
+        box-shadow: 0 4px 16px 0 rgba(0,0,0,0.18), 0 1.5px 6px 0 rgba(0,0,0,0.12)
     div
         display: flex
-        justify-content: space-between
         flex-wrap: nowrap
         width: 100%
         gap: 15px
         justify-content: center
         align-items: center
+        max-width: 600px
         a
             text-decoration: none
             color: black
@@ -98,7 +103,7 @@
 .scroll
     position: fixed
     z-index: 100
-    top: 10
+    top: 10px
     left: 50%
     transform: translateX(-50%)
     width: 75dvw

@@ -5,6 +5,11 @@ services:
       context: ./front
       dockerfile: Dockerfile.production
     restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
 
   back:
     container_name: cfo-backend
@@ -13,15 +18,28 @@ services:
       dockerfile: Dockerfile.production
     environment:
       - NODE_ENV=production
+      - MAILER_USERNAME=noreply@crossfitobernai.com
+      - MAILER_USERNAME_NAME=Formulaire
+      - MAILER_SUBJECT=crossfitobernai@gmail.com
+      - ALLOWED_ORIGINS="https://crossfitobernai.com,https://www.crossfitobernai.com,https://crossfitobernai.com:8080"
+      - MAILER_PASSWORD
+      - MAILER_HOSTNAME
     restart: unless-stopped
-    depends_on:
-      - db
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
 
   nginx:
     container_name: cfo-nginx
     build:
       context: ./nginx
       dockerfile: Dockerfile.production
+    volumes:
+      - type: bind
+        source: /etc/letsencrypt
+        target: /etc/letsencrypt
     ports:
       - "80:80"
       - "443:443"
@@ -29,22 +47,11 @@ services:
       - front
       - back
     restart: unless-stopped
-      
-  db:
-    container_name: cfo-db-prod
-    image: postgres:latest
-    restart: unless-stopped
-    volumes:
-      - type: volume
-        source: db-prod-cfo
-        target: /var/lib/postgresql/data
-      - type: bind
-        source: ./db/init
-        target: /docker-entrypoint-initdb.d
-
-volumes:
-  db-prod-cfo:
-    external: true
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
 networks:
   default:
