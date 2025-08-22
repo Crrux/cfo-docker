@@ -10,7 +10,7 @@ function LegalNotices() {
                 <li>Téléphone: +33 (0)6 14 03 06 94</li>
             </ul>
             <h2>Activités réglementées</h2>
-            <p>Mise à disposition d&apos; un espace et d&apos; équipements aux membres pour la pratique d&apos; activités physiques, fitness.La commercialisation de tous produits et services se rapportant à l&apos;objet social, toutes activités s&apos;y rapportant.</p>
+            <p>Mise à disposition d&apos; un espace et d&apos; équipements aux membres pour la pratique d&apos; activités physiques, fitness. La commercialisation de tous produits et services se rapportant à l&apos;objet social, toutes activités s&apos;y rapportant.</p>
             <h2>Directeur de la publication</h2>
             <p>Le directeur de la publication est Damien Kiefer, en qualité de Président.</p>
             <h2>Hébergement</h2>
