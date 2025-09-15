@@ -22,33 +22,31 @@ function Footer() {
             <tbody>
               <tr>
                 <th scope="row">Lundi :</th>
-                <td>10h00 - 20h30</td>
+                <td>8h30 - 20h30</td>
               </tr>
               <tr>
                 <th scope="row">Mardi :</th>
-                <td>12h30 - 20h30</td>
+                <td>8h30 - 20h30</td>
               </tr>
               <tr>
                 <th scope="row">Mercredi :</th>
-                <td>07h00 - 20h30</td>
+                <td>8h30 - 20h30</td>
               </tr>
               <tr>
                 <th scope="row">Jeudi :</th>
-                <td>12h30 - 20h30</td>
+                <td>8h30 - 20h30</td>
               </tr>
               <tr>
                 <th scope="row">Vendredi :</th>
-                <td>10h00 - 20h30</td>
+                <td>8h30 - 20h30</td>
               </tr>
               <tr>
                 <th scope="row">Samedi :</th>
-                <td>09h00 - 12h00</td>
+                <td>9h00 - 12h00</td>
               </tr>
               <tr>
                 <th scope="row">Dimanche :</th>
-                <td>
-                  09h00 - 12h00
-                </td>
+                <td>9h00 - 12h00</td>
               </tr>
             </tbody>
           </table>

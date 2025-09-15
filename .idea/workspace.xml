@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="126d76ad-9704-4d5a-a1e3-c048f179cb84" name="Changes" comment="refactor: update VCS configuration and workspace settings; adjust Git URL and change list details">
+    <list default="true" id="126d76ad-9704-4d5a-a1e3-c048f179cb84" name="Changes" comment="refactor: improve formatting in legal_notices.jsx and update workspace configuration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/layout/legal_notices/legal_notices.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/layout/legal_notices/legal_notices.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/layout/footer/footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/layout/footer/footer.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +16,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="update_3107" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -36,16 +36,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
+                    <option name="branchName" value="dev" />
+                    <option name="lastUsedInstant" value="1757954125" />
+                  </RecentBranch>
+                  <RecentBranch>
                     <option name="branchName" value="main" />
                     <option name="lastUsedInstant" value="1754326215" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="update_3107" />
-                    <option name="lastUsedInstant" value="1753975212" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="admin" />
-                    <option name="lastUsedInstant" value="1753957927" />
                   </RecentBranch>
                 </list>
               </option>
@@ -90,9 +86,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "dev",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Code/cfo - fullstack",
+    "last_opened_file_path": "D:/Code/cfo-docker",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -159,7 +155,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-WS-252.23892.411" />
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-WS-252.25557.126" />
       </set>
     </attachedChunks>
   </component>
@@ -182,6 +178,9 @@
       <workItem from="1755777518377" duration="764000" />
       <workItem from="1755872391292" duration="563000" />
       <workItem from="1755872979088" duration="120000" />
+      <workItem from="1756294102743" duration="1176000" />
+      <workItem from="1757952637374" duration="72000" />
+      <workItem from="1757952723014" duration="1409000" />
     </task>
     <task id="LOCAL-00001" summary="remove TypeORM and database-related code from contact module and service">
       <option name="closed" value="true" />
@@ -327,7 +326,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755873005168</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="refactor: improve formatting in legal_notices.jsx and update workspace configuration">
+      <option name="closed" value="true" />
+      <created>1755889213641</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1755889213641</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,6 +383,7 @@
     <MESSAGE value="update text alignment in various components for improved readability (justify all p)" />
     <MESSAGE value="update docker-compose configuration; add nginx volume for SSL certificates and remove unused db service" />
     <MESSAGE value="update VCS configuration and workspace settings; adjust Git URL and change list details" />
-    <option name="LAST_COMMIT_MESSAGE" value="update VCS configuration and workspace settings; adjust Git URL and change list details" />
+    <MESSAGE value="refactor: improve formatting in legal_notices.jsx and update workspace configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: improve formatting in legal_notices.jsx and update workspace configuration" />
   </component>
 </project>
