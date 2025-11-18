@@ -6,6 +6,6 @@
 *.bat
 /front/public/assets/video/Evenements.mp4
 /front/public/assets/video/Header.mp4
-
+**/database.sqlite
 /.vscode
 /.idea/

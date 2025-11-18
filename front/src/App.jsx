@@ -15,14 +15,15 @@ import HelmetRendering from "./layout/helmet/helmet";
 import Popup from "./components/popup/popup";
 import Home_redir from "./pages/home/home_redir";
 
+import { AuthProvider } from "./context/AuthContext";
+import Login from "./pages/admin/login/login";
+import Dashboard from "./pages/admin/dashboard/dashboard";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+
 function App() {
   return (
-    <>
-      <BrowserRouter
-        future={{
-          v7_startTransition: true,
-        }}
-      >
+    <BrowserRouter>
+      <AuthProvider>
         <HelmetRendering />
         <Popup />
         <Header />
@@ -34,13 +35,25 @@ function App() {
           {/* <Route path="coachs" element={<Coachs />} /> */}
           <Route path="contact" element={<Contact />} />
           <Route path="events" element={<Events />} />
-          <Route path="*" element={<Error />} />
           <Route path="mentions-legales" element={<MentionLegale />} />
           <Route path="home" element={<Home_redir />} />
+
+          {/* Routes Admin */}
+          <Route path="admin/login" element={<Login />} />
+          <Route
+            path="admin/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
-      </BrowserRouter>
-    </>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 

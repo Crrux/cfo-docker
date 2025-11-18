@@ -3,6 +3,8 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { Response, NextFunction, Request } from 'express';
 import * as process from 'node:process';
+import { DataSource } from 'typeorm';
+import { seedAdmin } from './auth/seed';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -11,11 +13,10 @@ async function bootstrap() {
     origin: process.env.ALLOWED_ORIGINS.split(',').map((origin) =>
       origin.trim(),
     ),
-    methods: ['POST', 'OPTIONS', 'GET'],
+    methods: ['POST', 'OPTIONS', 'GET', 'PUT', 'DELETE'],
     credentials: true,
-    allowedHeaders: ['Content-Type', 'x-app-key'],
     exposedHeaders: ['Content-Length', 'Date'],
-    maxAge: 600,
+    allowedHeaders: ['Content-Type', 'x-app-key', 'Authorization'],
   });
 
   // Middleware pour ajouter des en-têtes de sécurité supplémentaires
@@ -27,6 +28,12 @@ async function bootstrap() {
   });
 
   app.useGlobalPipes(new ValidationPipe());
+
+  // Seed admin user
+  const dataSource = app.get(DataSource);
+  await seedAdmin(dataSource);
+
   await app.listen(3000, '0.0.0.0');
 }
+
 bootstrap();

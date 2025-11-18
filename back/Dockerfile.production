@@ -1,4 +1,8 @@
 FROM node:alpine AS build
+
+# Installer les dépendances nécessaires pour compiler better-sqlite3
+RUN apk add --no-cache python3 make g++
+
 WORKDIR '/app'
 COPY package.json ./
 RUN npm install
@@ -6,6 +10,10 @@ COPY . ./
 RUN npm run build
 
 FROM node:alpine
+
+# Installer les dépendances nécessaires pour better-sqlite3 en runtime
+RUN apk add --no-cache python3 make g++
+
 COPY  --from=build /app/dist /app/dist
 COPY  --from=build /app/ecosystem.config.cjs /app/ecosystem.config.cjs
 WORKDIR /app
