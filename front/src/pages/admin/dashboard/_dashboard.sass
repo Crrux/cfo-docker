@@ -1,36 +1,78 @@
+// Variables locales pour le dashboard
+$primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%)
+$card-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
+$border-radius: 10px
+$transition-speed: 0.3s
+
+// Dashboard Container
 .dashboard-container
   min-height: 100vh
-  background: #f5f7fa
+  background: light-dark(#f5f5f5, #232627)
   padding: 20px
 
+  @media (max-width: 768px)
+    padding: 15px
+
+  @media (max-width: 480px)
+    padding: 10px
+
+// Dashboard Header
 .dashboard-header
   display: flex
   justify-content: space-between
   align-items: center
-  background: white
+  background: light-dark(white, lighten(#232627, 5%))
+  color: light-dark(#000, #f5f5f5)
   padding: 20px 30px
-  border-radius: 10px
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
+  border-radius: $border-radius
+  box-shadow: $card-shadow
   margin-bottom: 30px
 
+  @media (max-width: $layout-breakpoint-small)
+    flex-direction: column
+    gap: 15px
+    padding: 20px
+    text-align: center
+
+  @media (max-width: 480px)
+    padding: 15px
+    margin-bottom: 20px
+
   h1
-    color: #333
+    font-family: 'Roboto Condensed', sans-serif
+    font-weight: 800
+    color: inherit
     margin: 0
-    font-size: 28px
+    font-size: calc(15px + 1.5vw)
+    letter-spacing: 2px
+
+    @media (max-width: $layout-breakpoint-small)
+      font-size: calc(15px + 2vw)
+
+    @media (max-width: 480px)
+      font-size: calc(15px + 3vw)
 
   .logout-btn
     padding: 10px 20px
-    background: #dc3545
+    background: $primary-gradient
     color: white
     border: none
     border-radius: 5px
     cursor: pointer
     font-weight: 600
-    transition: background 0.3s
+    transition: all $transition-speed
+    white-space: nowrap
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3)
+
+    @media (max-width: $layout-breakpoint-small)
+      width: 100%
+      max-width: 300px
 
     &:hover
-      background: #c82333
+      transform: translateY(-2px)
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4)
 
+// Dashboard Content
 .dashboard-content
   display: grid
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
@@ -38,58 +80,163 @@
   max-width: 1200px
   margin: 0 auto
 
+  @media (max-width: 768px)
+    grid-template-columns: 1fr
+    gap: 15px
+
+  @media (max-width: 480px)
+    gap: 10px
+
+// Cards
 .user-info-card,
 .admin-actions-card
-  background: white
+  background: light-dark(white, lighten(#232627, 5%))
+  color: light-dark(#000, #f5f5f5)
   padding: 30px
-  border-radius: 10px
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
+  border-radius: $border-radius
+  box-shadow: $card-shadow
+
+  @media (max-width: $layout-breakpoint-small)
+    padding: 20px
+
+  @media (max-width: 480px)
+    padding: 15px
 
   h2
-    color: #333
+    font-family: 'Roboto Condensed', sans-serif
+    font-weight: 700
+    color: inherit
     margin-top: 0
     margin-bottom: 20px
-    font-size: 22px
-    border-bottom: 2px solid #667eea
+    font-size: calc(15px + 0.8vw)
+    border-bottom: 3px solid
+    border-image: linear-gradient(to right, #667eea 0%, #764ba2 100%)
+    border-image-slice: 1
     padding-bottom: 10px
 
+    @media (max-width: $layout-breakpoint-small)
+      font-size: calc(15px + 1vw)
+      margin-bottom: 15px
+
+    @media (max-width: 480px)
+      font-size: calc(15px + 1.5vw)
+
+  p
+    color: light-dark(#666, #ddd)
+    line-height: 1.6
+    margin: 10px 0
+
+    @media (max-width: 480px)
+      font-size: 14px
+      margin: 8px 0
+
+// Info Row
 .info-row
   display: flex
   justify-content: space-between
   padding: 12px 0
-  border-bottom: 1px solid #eee
+  border-bottom: 1px solid light-dark(#eee, lighten(#232627, 10%))
+  gap: 10px
+  flex-wrap: wrap
+
+  @media (max-width: 480px)
+    padding: 10px 0
+    flex-direction: column
+    gap: 5px
 
   &:last-of-type
     border-bottom: none
 
   .info-label
     font-weight: 600
-    color: #666
+    color: light-dark(#666, #ddd)
+
+    @media (max-width: 480px)
+      font-size: 14px
 
   .info-value
-    color: #333
+    color: light-dark(#333, #f5f5f5)
+    word-break: break-word
+    text-align: right
 
+    @media (max-width: 480px)
+      text-align: left
+      font-size: 14px
+
+// Buttons
 .change-password-btn
   width: 100%
   margin-top: 20px
   padding: 12px
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)
+  background: $primary-gradient
   color: white
   border: none
   border-radius: 5px
   cursor: pointer
   font-weight: 600
-  transition: transform 0.2s
+  transition: all $transition-speed
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3)
+
+  @media (max-width: 480px)
+    padding: 14px
+    font-size: 16px
 
   &:hover
     transform: translateY(-2px)
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4)
 
-.admin-actions-card
+    @media (max-width: $layout-breakpoint-small)
+      transform: none
+
+// Planning Info
+.current-planning-info
+  margin: 15px 0
+
   p
-    color: #666
-    line-height: 1.6
-    margin: 10px 0
+    margin: 8px 0
+    color: light-dark(#555, #ddd)
+    word-break: break-word
 
+    @media (max-width: 480px)
+      font-size: 14px
+
+    strong
+      color: light-dark(#333, #f5f5f5)
+
+// Planning Preview Small (dans le dashboard)
+.planning-preview-small
+  margin-top: 15px
+  max-width: 100%
+  width: 100%
+  max-height: 300px
+  border: 2px solid light-dark(#e0e0e0, lighten(#232627, 15%))
+  border-radius: 8px
+  overflow: hidden
+  display: flex
+  align-items: center
+  justify-content: center
+  background: light-dark(#f8f9fa, lighten(#232627, 3%))
+
+  @media (max-width: $layout-breakpoint-small)
+    max-height: 250px
+
+  @media (max-width: 480px)
+    max-height: 200px
+
+  img
+    width: 100%
+    height: 100%
+    max-height: 300px
+    object-fit: contain
+    display: block
+
+    @media (max-width: $layout-breakpoint-small)
+      max-height: 250px
+
+    @media (max-width: 480px)
+      max-height: 200px
+
+// Modal Overlay
 .modal-overlay
   position: fixed
   top: 0
@@ -101,15 +248,34 @@
   justify-content: center
   align-items: center
   z-index: 1000
+  padding: 20px
 
+  @media (max-width: 768px)
+    padding: 10px
+
+  @media (max-width: 480px)
+    padding: 5px
+
+// Modal Content
 .modal-content
-  background: white
+  background: light-dark(white, lighten(#232627, 5%))
+  color: light-dark(#000, #f5f5f5)
   padding: 30px
-  border-radius: 10px
+  border-radius: $border-radius
   width: 90%
   max-width: 500px
   max-height: 90vh
   overflow-y: auto
+  position: relative
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3)
+
+  @media (max-width: $layout-breakpoint-small)
+    padding: 20px
+    width: 95%
+
+  @media (max-width: 480px)
+    padding: 15px
+    width: 98%
 
   .modal-header
     display: flex
@@ -117,16 +283,27 @@
     align-items: center
     margin-bottom: 20px
 
+    @media (max-width: 480px)
+      margin-bottom: 15px
+
     h2
+      font-family: 'Roboto Condensed', sans-serif
+      font-weight: 700
       margin: 0
-      color: #333
-      font-size: 24px
+      color: inherit
+      font-size: calc(15px + 0.8vw)
+
+      @media (max-width: $layout-breakpoint-small)
+        font-size: calc(15px + 1vw)
+
+      @media (max-width: 480px)
+        font-size: calc(15px + 1.5vw)
 
     .close-btn
       background: none
       border: none
       font-size: 32px
-      color: #999
+      color: light-dark(#999, #666)
       cursor: pointer
       padding: 0
       width: 32px
@@ -134,15 +311,24 @@
       display: flex
       align-items: center
       justify-content: center
-      transition: color 0.3s
+      transition: color $transition-speed
+      flex-shrink: 0
+
+      @media (max-width: 480px)
+        font-size: 28px
+        width: 28px
+        height: 28px
 
       &:hover
-        color: #333
+        color: light-dark(#333, #ddd)
 
   form
     display: flex
     flex-direction: column
     gap: 20px
+
+    @media (max-width: 480px)
+      gap: 15px
 
     .form-group
       display: flex
@@ -151,23 +337,42 @@
 
       label
         font-weight: 600
-        color: #555
+        color: light-dark(#555, #ddd)
         font-size: 14px
+
+        @media (max-width: 480px)
+          font-size: 13px
 
       input
         padding: 12px
-        border: 2px solid #e0e0e0
+        border: 2px solid light-dark(#e0e0e0, lighten(#232627, 15%))
         border-radius: 5px
         font-size: 16px
-        transition: border-color 0.3s
+        transition: border-color $transition-speed
+        background: light-dark(white, lighten(#232627, 3%))
+        color: light-dark(#000, #f5f5f5)
+
+        @media (max-width: 480px)
+          padding: 10px
+          font-size: 14px
 
         &:focus
           outline: none
           border-color: #667eea
+          box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1)
 
         &:disabled
-          background-color: #f5f5f5
+          background-color: light-dark(#f5f5f5, darken(#232627, 3%))
           cursor: not-allowed
+          opacity: 0.6
+
+      .help-text
+        font-size: 12px
+        color: light-dark(#666, #999)
+        margin-top: 5px
+
+        @media (max-width: 480px)
+          font-size: 11px
 
     .message
       padding: 12px
@@ -175,21 +380,30 @@
       font-size: 14px
       text-align: center
 
+      @media (max-width: 480px)
+        padding: 10px
+        font-size: 13px
+
       &.success
-        background-color: #d4edda
-        color: #155724
-        border: 1px solid #c3e6cb
+        background-color: light-dark(#d4edda, darken(#d4edda, 60%))
+        color: light-dark(#155724, #a3e4b0)
+        border: 1px solid light-dark(#c3e6cb, darken(#c3e6cb, 50%))
 
       &.error
-        background-color: #fee
-        color: #c33
-        border: 1px solid #fcc
+        background-color: light-dark(#fee, darken(#fee, 60%))
+        color: light-dark(#c33, #fcc)
+        border: 1px solid light-dark(#fcc, darken(#fcc, 50%))
 
     .modal-actions
       display: flex
       gap: 10px
       justify-content: flex-end
       margin-top: 10px
+      flex-wrap: wrap
+
+      @media (max-width: $layout-breakpoint-small)
+        flex-direction: column-reverse
+        gap: 8px
 
       button
         padding: 12px 24px
@@ -197,39 +411,225 @@
         border-radius: 5px
         cursor: pointer
         font-weight: 600
-        transition: transform 0.2s
+        transition: all $transition-speed
+        flex: 0 1 auto
+
+        @media (max-width: $layout-breakpoint-small)
+          width: 100%
+          padding: 14px
 
         &:disabled
           opacity: 0.6
           cursor: not-allowed
 
       .cancel-btn
-        background: #6c757d
+        background: light-dark(#6c757d, lighten(#6c757d, 10%))
         color: white
 
         &:hover:not(:disabled)
-          background: #5a6268
+          background: light-dark(#5a6268, lighten(#5a6268, 10%))
 
       .submit-btn
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)
+        background: $primary-gradient
         color: white
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3)
 
         &:hover:not(:disabled)
           transform: translateY(-2px)
+          box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4)
 
-@media (max-width: 768px)
-  .dashboard-header
+          @media (max-width: $layout-breakpoint-small)
+            transform: none
+
+// Planning Modal (plus large)
+.planning-modal
+  max-width: 800px !important
+
+  @media (max-width: 900px)
+    max-width: 90% !important
+
+  @media (max-width: 768px)
+    max-width: 95% !important
+
+  @media (max-width: 480px)
+    max-width: 98% !important
+
+// Preview Container (dans la modal)
+.preview-container
+  margin: 20px 0
+  padding: 15px
+  background: light-dark(#f8f9fa, lighten(#232627, 3%))
+  border-radius: 8px
+  max-height: 60vh
+  overflow: hidden
+  display: flex
+  flex-direction: column
+  border: 1px solid light-dark(#e0e0e0, lighten(#232627, 15%))
+
+  @media (max-width: $layout-breakpoint-small)
+    max-height: 50vh
+    padding: 10px
+
+  @media (max-width: 480px)
+    max-height: 40vh
+    padding: 8px
+
+  h3
+    font-family: 'Roboto Condensed', sans-serif
+    font-weight: 600
+    margin-top: 0
+    margin-bottom: 15px
+    color: inherit
+    font-size: calc(15px + 0.5vw)
+
+    @media (max-width: $layout-breakpoint-small)
+      font-size: calc(15px + 0.8vw)
+      margin-bottom: 10px
+
+    @media (max-width: 480px)
+      font-size: calc(15px + 1vw)
+      margin-bottom: 8px
+
+  .preview-image
+    width: 100%
+    height: auto
+    max-height: calc(60vh - 60px)
+    object-fit: contain
+    border-radius: 5px
+    border: 1px solid light-dark(#ddd, lighten(#232627, 20%))
+
+    @media (max-width: $layout-breakpoint-small)
+      max-height: calc(50vh - 50px)
+
+    @media (max-width: 480px)
+      max-height: calc(40vh - 40px)
+
+// Planning History
+.planning-history
+  margin-top: 30px
+  padding-top: 20px
+  border-top: 2px solid light-dark(#e0e0e0, lighten(#232627, 15%))
+
+  @media (max-width: $layout-breakpoint-small)
+    margin-top: 20px
+    padding-top: 15px
+
+  @media (max-width: 480px)
+    margin-top: 15px
+    padding-top: 10px
+
+  h3
+    font-family: 'Roboto Condensed', sans-serif
+    font-weight: 600
+    margin-top: 0
+    margin-bottom: 15px
+    color: inherit
+    font-size: calc(15px + 0.5vw)
+
+    @media (max-width: $layout-breakpoint-small)
+      font-size: calc(15px + 0.8vw)
+      margin-bottom: 10px
+
+    @media (max-width: 480px)
+      font-size: calc(15px + 1vw)
+      margin-bottom: 8px
+
+  .history-list
+    display: flex
     flex-direction: column
-    gap: 15px
-    text-align: center
+    gap: 10px
 
-    h1
-      font-size: 24px
+    @media (max-width: 480px)
+      gap: 8px
 
-  .dashboard-content
-    grid-template-columns: 1fr
+  .history-item
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 15px
+    background: light-dark(#f8f9fa, lighten(#232627, 3%))
+    border-radius: 8px
+    border: 2px solid transparent
+    transition: all $transition-speed
+    flex-wrap: wrap
+    gap: 10px
 
-  .modal-content
-    padding: 20px
-    width: 95%
+    @media (max-width: $layout-breakpoint-small)
+      padding: 12px
+      flex-direction: column
+      align-items: flex-start
+
+    @media (max-width: 480px)
+      padding: 10px
+
+    &.active
+      background: light-dark(#e8f4f8, darken(#667eea, 50%))
+      border-color: #667eea
+
+    &:hover:not(.active)
+      background: light-dark(#e9ecef, lighten(#232627, 8%))
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1)
+
+  .history-info
+    flex: 1
+    min-width: 200px
+
+    @media (max-width: $layout-breakpoint-small)
+      min-width: 100%
+
+    .history-filename
+      font-weight: 600
+      color: inherit
+      margin: 0 0 5px 0
+      word-break: break-word
+
+      @media (max-width: 480px)
+        font-size: 14px
+
+    .history-date
+      font-size: 13px
+      color: light-dark(#666, #999)
+      margin: 0
+
+      @media (max-width: 480px)
+        font-size: 12px
+
+  .history-actions
+    .active-badge
+      background: $primary-gradient
+      color: white
+      padding: 6px 15px
+      border-radius: 20px
+      font-size: 12px
+      font-weight: 600
+      white-space: nowrap
+      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3)
+
+      @media (max-width: 480px)
+        padding: 5px 12px
+        font-size: 11px
+
+    .restore-btn
+      padding: 8px 16px
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%)
+      color: white
+      border: none
+      border-radius: 5px
+      cursor: pointer
+      font-weight: 600
+      transition: all $transition-speed
+      white-space: nowrap
+      box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3)
+
+      @media (max-width: $layout-breakpoint-small)
+        padding: 7px 14px
+        font-size: 14px
+
+      @media (max-width: 480px)
+        padding: 6px 12px
+        font-size: 13px
+
+      &:hover
+        transform: translateY(-2px)
+        box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4)
 

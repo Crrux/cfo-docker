@@ -1,7 +1,29 @@
+import { useState, useEffect } from 'react';
+import { authService } from '../../services/authService';
 import TitleBackgroundImage from "/assets/title_background/TitleBackground_Planning.webp";
-import PlanningImg from "/assets/Planning/Planning_CFO_2025.webp"
+import PlanningImgDefault from "/assets/Planning/Planning_CFO_2025.webp";
 
 function Planning() {
+  const [planningImage, setPlanningImage] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    void loadPlanningImage();
+  }, []);
+
+  const loadPlanningImage = async () => {
+    try {
+      const data = await authService.getCurrentPlanningImage();
+      if (data && data.imageData) {
+        setPlanningImage(data.imageData);
+      }
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Erreur lors du chargement du planning:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <main className="Planning">
@@ -13,7 +35,14 @@ function Planning() {
         </div>
       </div>
       <div className="img_zoom">
-        <img src={PlanningImg} alt="Planning de la box CrossFit Obernai"></img>
+        {loading ? (
+          <p>Chargement...</p>
+        ) : (
+          <img
+            src={planningImage || PlanningImgDefault}
+            alt="Planning de la box CrossFit Obernai"
+          />
+        )}
       </div>
     </main>
   );

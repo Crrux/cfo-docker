@@ -116,6 +116,30 @@ export const authService = {
     const userStr = localStorage.getItem('user') || sessionStorage.getItem('user');
     return userStr ? JSON.parse(userStr) : null;
   },
+
+  async updatePlanningImage(imageData, fileName, mimeType) {
+    const response = await api.post('/auth/planning/update', {
+      imageData,
+      fileName,
+      mimeType,
+    });
+    return response.data;
+  },
+
+  async getCurrentPlanningImage() {
+    const response = await api.get('/auth/planning/current');
+    return response.data;
+  },
+
+  async getPlanningImageHistory() {
+    const response = await api.get('/auth/planning/history');
+    return response.data;
+  },
+
+  async restorePlanningImage(id) {
+    const response = await api.put(`/auth/planning/restore/${id}`);
+    return response.data;
+  },
 };
 
 export default api;

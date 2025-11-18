@@ -7,7 +7,14 @@ import { DataSource } from 'typeorm';
 import { seedAdmin } from './auth/seed';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    bodyParser: true,
+    rawBody: true,
+  });
+
+  // Augmenter la limite de taille des requêtes pour les uploads d'images
+  app.use(require('express').json({ limit: '50mb' }));
+  app.use(require('express').urlencoded({ limit: '50mb', extended: true }));
 
   app.enableCors({
     origin: process.env.ALLOWED_ORIGINS.split(',').map((origin) =>

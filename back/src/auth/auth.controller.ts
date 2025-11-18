@@ -7,12 +7,15 @@ import {
   Get,
   HttpCode,
   HttpStatus,
+  Param,
+  Put,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './local-auth.guard';
 import { JwtAuthGuard } from './jwt-auth.guard';
 import { ChangePasswordDto } from './dto/change-password.dto';
 import { LoginDto } from './dto/login.dto';
+import { UpdatePlanningDto } from './dto/update-planning.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -55,5 +58,34 @@ export class AuthController {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password: _, ...result } = user;
     return result;
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('planning/update')
+  @HttpCode(HttpStatus.OK)
+  async updatePlanningImage(
+    @Body() updatePlanningDto: UpdatePlanningDto,
+  ) {
+    return this.authService.updatePlanningImage(updatePlanningDto);
+  }
+
+  @Get('planning/current')
+  @HttpCode(HttpStatus.OK)
+  async getCurrentPlanningImage() {
+    return this.authService.getCurrentPlanningImage();
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('planning/history')
+  @HttpCode(HttpStatus.OK)
+  async getPlanningImageHistory() {
+    return this.authService.getPlanningImageHistory();
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Put('planning/restore/:id')
+  @HttpCode(HttpStatus.OK)
+  async restorePlanningImage(@Param('id') id: number) {
+    return this.authService.restorePlanningImage(id);
   }
 }

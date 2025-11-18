@@ -4,39 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="126d76ad-9704-4d5a-a1e3-c048f179cb84" name="Changes" comment="refactor: improve formatting in legal_notices.jsx and update workspace configuration">
-      <change afterPath="$PROJECT_DIR$/AUTHENTICATION.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/auth/auth.controller.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/auth/auth.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/auth/auth.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/auth/dto/change-password.dto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/auth/dto/login.dto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/auth/entities/user.entity.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/auth/jwt-auth.guard.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/auth/jwt.strategy.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/auth/local-auth.guard.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/auth/local.strategy.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/auth/seed.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/components/ProtectedRoute/ProtectedRoute.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/context/AuthContext.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/pages/admin/dashboard/_dashboard.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/pages/admin/dashboard/dashboard.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/pages/admin/login/_login.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/pages/admin/login/login.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/services/authService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="126d76ad-9704-4d5a-a1e3-c048f179cb84" name="Changes" comment="feat: implement authentication system with JWT and SQLite; add admin login and dashboard">
+      <change afterPath="$PROJECT_DIR$/back/src/auth/dto/update-planning.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/src/auth/entities/planning-image.entity.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilotDiffState.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilotDiffState.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/Dockerfile.dev" beforeDir="false" afterPath="$PROJECT_DIR$/back/Dockerfile.dev" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/Dockerfile.production" beforeDir="false" afterPath="$PROJECT_DIR$/back/Dockerfile.production" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/back/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/back/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/auth/auth.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/auth/auth.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/auth/auth.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/admin/dashboard/_dashboard.sass" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/admin/dashboard/_dashboard.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/admin/dashboard/dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/admin/dashboard/dashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/planning/planning.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/planning/planning.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/sass/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/sass/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/sass/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/sass/style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/sass/style.sass" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/sass/style.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/services/authService.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/authService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -375,7 +358,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755889213641</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="feat: implement authentication system with JWT and SQLite; add admin login and dashboard">
+      <option name="closed" value="true" />
+      <created>1763492687047</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1763492687047</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,6 +416,7 @@
     <MESSAGE value="update docker-compose configuration; add nginx volume for SSL certificates and remove unused db service" />
     <MESSAGE value="update VCS configuration and workspace settings; adjust Git URL and change list details" />
     <MESSAGE value="refactor: improve formatting in legal_notices.jsx and update workspace configuration" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: improve formatting in legal_notices.jsx and update workspace configuration" />
+    <MESSAGE value="feat: implement authentication system with JWT and SQLite; add admin login and dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: implement authentication system with JWT and SQLite; add admin login and dashboard" />
   </component>
 </project>

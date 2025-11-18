@@ -8,6 +8,7 @@ import { ContactModule } from './contact/contact.module';
 import { AuthModule } from './auth/auth.module';
 import mailer from './environnement/mailer';
 import { User } from './auth/entities/user.entity';
+import { PlanningImage } from './auth/entities/planning-image.entity';
 
 @Module({
   imports: [
@@ -20,7 +21,7 @@ import { User } from './auth/entities/user.entity';
     TypeOrmModule.forRoot({
       type: 'better-sqlite3',
       database: 'database.sqlite',
-      entities: [User],
+      entities: [User, PlanningImage],
       synchronize: true, // À mettre à false en production
     }),
     ContactModule,
