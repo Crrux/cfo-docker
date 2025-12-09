@@ -8,3 +8,4 @@
 /front/public/assets/video/Header.mp4
 *.sqlite
 /.idea
+/.vscode
