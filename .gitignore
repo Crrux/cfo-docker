@@ -8,5 +8,5 @@
 /front/public/assets/video/Header.mp4
 **/database.sqlite
 
-/.vscode
-/.idea/
+.vscode
+.idea/
